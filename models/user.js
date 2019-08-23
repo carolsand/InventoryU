@@ -9,3 +9,7 @@ const userSchema = new Schema({
 }, {
     timestamps: true
 });
+
+module.exports = {
+    userSchema
+}
