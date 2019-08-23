@@ -10,8 +10,7 @@ passport.use(new GoogleStrategy({
     },
     function(accessToken, refreshToken, profile, cb) {
         // A user has logged in with OAuth
-        User.findOne({
-            googleId: profile.id,
+        User.findOne({ googleId: profile.id },
             function(err, user) {
                 if (err) return cb(err);
                 if (user) {
@@ -29,7 +28,7 @@ passport.use(new GoogleStrategy({
                     });
                 }
             }
-        });
+        );
     }
 ));
 
@@ -39,10 +38,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    User.findById({
-        id,
-        function(err, user) {
-            done(err, user);
-        }
+    User.findById(id, function(err, user) {
+        done(err, user);
     });
 });
