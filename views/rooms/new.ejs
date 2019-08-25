@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+    <form id="new-form" action="/rooms" method="POST">
+        <label>Rooms</label>
+        <select name="room">
+    <option value="LVRM">Living Room</option>
+    <option value="BEDRM">Bed Room</option>
+    <option value="KITCN">Kitchen</option>
+    <option value="GUESTRM">Guest Room</option>
+    <option value="DNGROOM">Dining Room</option>
+    <option value="GARAGE">Garage</option>
+    <option value="DEN">Den</option>
+    <option value="OFFICE">Office</option>
+    <option value="MUSICROOM">Music Room</option>
+  </select>
+        <br>
+        <!-- <label>Select the Items in Your Room</label>
+  <select name="items">
+    <option value="SFO">San Francisco</option>
+    <option value="OAK">Oakland</option>
+    <option value="LAX">Los Angeles</option>
+    <option value="SEA">Seattle</option>
+    <option value="LHR">Heathrow</option>
+    <option value="TLV">Ben Gurion</option>
+  </select> -->
+        <br>
+        <label for="date">Select Creation Date:</label>
+        <input type="date-time-local" id="room" name="creation-date" value="2019-08-25T00:10" min="2019-0825T00:00" max="2030-08-08T:00">
+        <br>
+        <input type="submit" value="Add Room">
+        <!-- <input name="seat" required pattern="[A-F][1-9]\d?"> -->
+    </form>
+
+    <%- include('../partials/footer') %>
