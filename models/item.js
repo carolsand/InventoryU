@@ -16,4 +16,4 @@ const itemsSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Room', itemsSchema);
+module.exports = mongoose.model('Rooms', itemsSchema);
