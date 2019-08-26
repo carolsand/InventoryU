@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<p>Please first ensure that the Performer is not in the dropdown
+  <select>
+    <% items.forEach(function(it) { %>
+    <option>
+      <%= it.name %>
+    </option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-items-form" action="/items" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Description:</label>
+  <input type="text" value="description">
+  <input type="submit" value="Add Item">
+</form>
+
+<%- include('../partials/footer') %>

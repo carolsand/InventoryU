@@ -26,6 +26,7 @@ function create(req, res) {
 }
 
 function index(req, res) {
+    console.log('hello')
     Room.find({}, function(err, rooms) {
         res.render('rooms/index', {
             title: 'ALL Rooms',
@@ -49,8 +50,10 @@ function deleteRoom(req, res) {
 // }
 
 function show(req, res) {
+  
     Room.findById(req.params.id, function(err, room) {
         // Item.find({}).where('_id').nin(room.item)
+        console.log(req.params.id)
         Item.find({
             room: req.params.id
         }, function(err, items) {
