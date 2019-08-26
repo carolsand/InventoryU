@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const roomsController = require('../controllers/room');
+const roomsController = require('../controllers/rooms');
 
 /* GET pages: index, new room, show inventory, create room */
 // router.get('/', roomsController.X);
