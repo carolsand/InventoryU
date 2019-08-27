@@ -7,6 +7,7 @@ module.exports = {
     show,
     new: newRoom,
     create,
+    showRoom,
     delete: deleteRoom
 }
 
@@ -18,18 +19,20 @@ function newRoom(req, res) {
 
 function create(req, res) {
     var room = new Room(req.body);
+    console.log(`In the create room controller the value of room is: ${room}:${room._id }`);
     room.save(function(err) {
         //handle errors
-        if (err) return res.render('/rooms/new');
-        res.redirect(`/rooms/${room._id }`);
+    if (err) return res.render('rooms/new');
+    res.redirect(`rooms/${room._id }`);
     });
 }
 
 function index(req, res) {
     console.log('hello')
     Room.find({}, function(err, rooms) {
+        console.log(rooms);
         res.render('rooms/index', {
-            title: 'ALL Rooms',
+            title: 'InventoryU',
             rooms
         });
     });
@@ -39,18 +42,18 @@ function deleteRoom(req, res) {
     Room.deleteOne({
         '_id': req.params.id
     }, function(err) {
-        res.redirect('/rooms');
+        res.redirect('rooms');
     });
 }
-// function show(req, res){
-//   Room.findById(req.params.id, function(err, flights){
-//     res.render('flights/show', {title: 'Flight Details', flights});
-//     console.log(flights);
-//   });
-// }
+function show(req, res){
+  Room.find(req.body, function(err, rooms){
+    res.render('rooms/show', {title: 'Rooms', rooms});
+    console.log('In the create room controller//////////');
+  });
+}
 
-function show(req, res) {
-  
+function showRoom(req, res) {
+    console.log('In the create room controller//////////');
     Room.findById(req.params.id, function(err, room) {
         // Item.find({}).where('_id').nin(room.item)
         console.log(req.params.id)
@@ -59,9 +62,9 @@ function show(req, res) {
         }, function(err, items) {
             console.log(items);
             res.render('rooms/show', {
-                title: 'Room Detail',
+                title: `${room}`,
                 room,
-                item
+                items
             });
         });
     });

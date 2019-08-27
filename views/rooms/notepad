@@ -1,0 +1,30 @@
+<!-- start item list -->
+<!-- <ul>
+<% items.forEach(function(t) { %>
+    <div>Room: Item:
+        <%= t.item %> Item:
+        <%= t.description %> Description:
+    </div>
+    <form action="/items/<%= item._id%>/items/<%=t._id %>?_method=DELETE" method="POST"><button>Delete
+    Items</button></form>
+<% }) %>
+</ul> -->
+<!-- end item list -->
+<!-- </section> -->
+
+<!-- add to room form below -->
+<!-- <a id="newRoom" href="/room/<%= room._id %>/rooms/new">New Room</a> -->
+
+
+<!-- <% if (room.items.length > 0) { %>
+    <% room.items.forEach(function(ds) { %>
+    <div>Rooms:
+        <%=  ds.room %>
+    </div>
+    <div>Items:
+        <%= ds.item %>
+    </div>
+    <% }) %>
+<% } %> -->
+
+<input type="datetime-local" id="item" name="item" value="2019-08-25T00:10" min="2019-0825T00:00" max="2030-08-08T:00">

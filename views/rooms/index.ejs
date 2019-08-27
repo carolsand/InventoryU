@@ -4,41 +4,12 @@
         <%= rooms.name %>
         <%= rooms.description %>
     </div>
-    <div>Item:
-        <%= item.name %>
-        <%= item.description %>
-    </div>
-</section>
-<!-- start item list -->
-<ul>
-<% items.forEach(function(t) { %>
-    <div>Room: Item:
-        <%= t.item %> Item:
-        <%= t.description %> Description:
-    </div>
-    <form action="/items/<%= item._id%>/items/<%=t._id %>?_method=DELETE" method="POST"><button>Delete
-    Items</button></form>
-<% }) %>
-</ul>
-<!-- end item list -->
 </section>
 
-<!-- add to room form below -->
-<a id="newRoom" href="/room/<%= room._id %>/rooms/new">New Room</a>
+<h2>InventoryU</h2>
 
-<h2>Inventory</h2>
-<% if (room.items.length > 0) { %>
-    <% room.items.forEach(function(ds) { %>
-    <div>Rooms:
-        <%=  ds.room %>
-    </div>
-    <div>Items:
-        <%= ds.item %>
-    </div>
-    <% }) %>
-<% } %>
 <br>
-<form id="add-per-to-room" action="/rooms/<%= room._id%>/rooms" method="POST">
+<form id="add-per-to-room" action="rooms/<%= rooms._id%>new" method="POST">
     <label>Room</label>
     <select name="room">
     <option value="LVRM">Living Room</option>
@@ -51,9 +22,8 @@
     <option value="DEN">Dining Room</option>
     <option value="OFFICE">Dining Room</option>
     <option value="MUSICROOM">Music Room</option>
-</select>
-<input type="datetime-local" id="item" name="item" value="2019-08-25T00:10" min="2019-0808T00:00" max="2030-08-08T:00">
-<input value="Add to Room" type="submit" />
+    </select>
+<input value="Add Room" type="submit" />
 </form>
 
 <%- include('../partials/footer') %>

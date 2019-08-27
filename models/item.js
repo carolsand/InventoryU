@@ -13,7 +13,13 @@ const itemsSchema = new Schema({
             return Number() >= 0 || Number() <= 999999999 || /[[a-zA-Z].*/;
         }
 
+    },
+    date: {
+        type: Number,
+        default: function () {
+            return Number() >= 0 || Number() <= 999999999 || /[[a-zA-Z].*/;
+        }
     }
 });
 
-module.exports = mongoose.model('Rooms', itemsSchema);
+module.exports = mongoose.model('Items', itemsSchema);

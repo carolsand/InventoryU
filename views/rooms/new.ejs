@@ -1,33 +1,77 @@
-<%- include('../partials/header') %>
+
   <form id="new-form" action="/rooms" method="POST">
-  <label>Rooms</label>
-  <select name="room">
-    <option value="LVRM">Living Room</option>
-    <option value="BEDRM">Bed Room</option>
-    <option value="KITCN">Kitchen</option>
-    <option value="GUESTRM">Guest Room</option>
-    <option value="DNGROOM">Dining Room</option>
-    <option value="GARAGE">Garage</option>
-    <option value="DEN">Den</option>
-    <option value="OFFICE">Office</option>
-    <option value="MUSICROOM">Music Room</option>
-</select>
-<br>
-<!-- <label>Select the Items in Your Room</label>
-  <select name="items">
-    <option value="SFO">San Francisco</option>
-    <option value="OAK">Oakland</option>
-    <option value="LAX">Los Angeles</option>
-    <option value="SEA">Seattle</option>
-    <option value="LHR">Heathrow</option>
-    <option value="TLV">Ben Gurion</option>
-  </select> -->
+    <label>Rooms</label>
+    <select name="room">
+        <option value="LVRM">Living Room</option>
+        <option value="BEDRM">Bed Room</option>
+        <option value="KITCN">Kitchen</option>
+        <option value="GUESTRM">Guest Room</option>
+        <option value="DNGROOM">Dining Room</option>
+        <option value="GARAGE">Garage</option>
+        <option value="DEN">Den</option>
+        <option value="OFFICE">Office</option>
+        <option value="MUSICROOM">Music Room</option>
+    </select>
 <br>
 <label for="date">Select Creation Date:</label>
 <input type="date-time-local" id="room" name="creation-date" value="2019-08-25T00:10" min="2019-0825T00:00" max="2030-08-08T:00">
 <br>
 <input type="submit" value="Add Room">
-<!-- <input name="seat" required pattern="[A-F][1-9]\d?"> -->
+</form>
+
+
+<!-- add to room form below -->
+<a id="newRoom" href="rooms/<%= rooms._id %>rooms/new">New Room</a>
+
+<h2>Inventory</h2>
+<% if (room.items.length > 0) { %>
+    <% room.items.forEach(function(ds) { %>
+    <div>Rooms:<%= ds.room %></div>
+    <div>Items:<%= ds.item %></div>
+  <% }) %>
+<% } %>
+<br>
+
+<!-- <form id="add-per-to-room" action="/rooms/<%= room._id%>/rooms" method="POST">
+    <label>Room</label>
+    <select name="room">
+    <option value="LVRM">Living Room</option>
+    <option value="KTCH">Kitchen</option>
+    <option value="BEDRM">Bed Room</option>
+    <option value="KITCN">Kitchen</option>
+    <option value="GUESTRM">Guest Room</option>
+    <option value="DNGROOM">Dining Room</option>
+    <option value="GARAGE">Dining Room</option>
+    <option value="DEN">Dining Room</option>
+    <option value="OFFICE">Dining Room</option>
+    <option value="MUSICROOM">Music Room</option>
+</select>
+</form> -->
+
+<h2>Items</h2>
+<form id="add-per-to-room" method="POST" action="/rooms/<%= room._id%>/rooms">
+  <label>Items:</label>
+  <textarea name="content"></textarea>
+  <select name="items">
+    <option value="DESK">DESK</option>
+    <option value="OCHAIR">Office Chair</option>
+    <option value="BED">Bed</option>
+    <option value="FOOTREST">Foot Rest</option>
+    <option value="LOUNGECHAIR">Lounge Chair</option>
+    <option value="TV">Dining Room</option>
+    <option value="TV">Television</option>
+    <option value="TABLE">Table</option>
+    <option value="TBLCHAIR">Table Chair</option>
+    <option value="KCHAIR">Kitchen Chair</option>
+    <option value="KCHAIR">Kitchen Table</option>
+    <option value="STOVE">Stove</option>
+    <option value="BLENDER">Blender</option>
+    <option value="GUITAR">Guitar</option>
+    <option value="FRIG">Refrigator</option>
+  </select>
+  <input type="submit" value="Add Item">
+  <input type="datetime-local" id="item" name="item" value="2019-08-25T00:10" min="2019-0825T00:00" max="2030-08-08T:00">
+  <input value="Add to Room" type="submit" />
 </form>
 
 <%- include('../partials/footer') %>
