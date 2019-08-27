@@ -19,7 +19,7 @@ function addToRoom(req, res) {
 function create(req, res) {
   /* Creat a New item not in the list */
   Item.create(req.body, function (err, item) {
-    Item.pop(item);
+    // Item.pop(item);
     res.redirect('/items/new');
   });
 }

@@ -1,38 +1,6 @@
-
-  <form id="new-form" action="/rooms" method="POST">
-    <label>Rooms</label>
-    <select name="room">
-        <option value="LVRM">Living Room</option>
-        <option value="BEDRM">Bed Room</option>
-        <option value="KITCN">Kitchen</option>
-        <option value="GUESTRM">Guest Room</option>
-        <option value="DNGROOM">Dining Room</option>
-        <option value="GARAGE">Garage</option>
-        <option value="DEN">Den</option>
-        <option value="OFFICE">Office</option>
-        <option value="MUSICROOM">Music Room</option>
-    </select>
-<br>
-<label for="date">Select Creation Date:</label>
-<input type="date-time-local" id="room" name="creation-date" value="2019-08-25T00:10" min="2019-0825T00:00" max="2030-08-08T:00">
-<br>
-<input type="submit" value="Add Room">
-</form>
-
-
+<%- include('../partials/header') %>
 <!-- add to room form below -->
-<a id="newRoom" href="rooms/<%= rooms._id %>rooms/new">New Room</a>
-
-<h2>Inventory</h2>
-<% if (room.items.length > 0) { %>
-    <% room.items.forEach(function(ds) { %>
-    <div>Rooms:<%= ds.room %></div>
-    <div>Items:<%= ds.item %></div>
-  <% }) %>
-<% } %>
-<br>
-
-<!-- <form id="add-per-to-room" action="/rooms/<%= room._id%>/rooms" method="POST">
+<form id="add-room" action="/rooms" method="POST">
     <label>Room</label>
     <select name="room">
     <option value="LVRM">Living Room</option>
@@ -46,11 +14,11 @@
     <option value="OFFICE">Dining Room</option>
     <option value="MUSICROOM">Music Room</option>
 </select>
-</form> -->
+</form>
 
 <h2>Items</h2>
-<form id="add-per-to-room" method="POST" action="/rooms/<%= room._id%>/rooms">
-  <label>Items:</label>
+<form id="add-per-to-room" method="POST" action="/items">
+  <label>Description:</label>
   <textarea name="content"></textarea>
   <select name="items">
     <option value="DESK">DESK</option>
@@ -70,8 +38,7 @@
     <option value="FRIG">Refrigator</option>
   </select>
   <input type="submit" value="Add Item">
-  <input type="datetime-local" id="item" name="item" value="2019-08-25T00:10" min="2019-0825T00:00" max="2030-08-08T:00">
-  <input value="Add to Room" type="submit" />
 </form>
+
 
 <%- include('../partials/footer') %>

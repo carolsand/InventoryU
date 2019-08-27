@@ -7,13 +7,14 @@ module.exports = {
     show,
     new: newRoom,
     create,
-    showRoom,
     delete: deleteRoom
 }
 
 function newRoom(req, res) {
     res.render('rooms/new', {
-        title: 'Add Room'
+        title: `${room}`,
+        room,
+        items
     });
 }
 
@@ -29,11 +30,12 @@ function create(req, res) {
 
 function index(req, res) {
     console.log('hello')
-    Room.find({}, function(err, rooms) {
-        console.log(rooms);
+    Room.find({}, function(err, room) {
+        console.log(`${room} INDEX//////////`);
         res.render('rooms/index', {
-            title: 'InventoryU',
-            rooms
+            title: `${room}`,
+            room,
+            items
         });
     });
 }
@@ -45,15 +47,18 @@ function deleteRoom(req, res) {
         res.redirect('rooms');
     });
 }
-function show(req, res){
-  Room.find(req.body, function(err, rooms){
-    res.render('rooms/show', {title: 'Rooms', rooms});
-    console.log('In the create room controller//////////');
-  });
-}
+// function show(req, res){
+//   Room.find(req.body, function(err, rooms){
+//     res.render('rooms/show', {title: 'Rooms', rooms});
+//     console.log('In the create room controller//////////');
+//   });
+// }
 
-function showRoom(req, res) {
-    console.log('In the create room controller//////////');
+function show(req, res) {
+    console.log('In the show room controller//////////');
+    Rooms.find(req.body,function(err, rooms){
+        console.log(`${rooms}////////////////`);
+    })
     Room.findById(req.params.id, function(err, room) {
         // Item.find({}).where('_id').nin(room.item)
         console.log(req.params.id)
