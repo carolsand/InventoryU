@@ -2,5 +2,17 @@
 </body>
 <br>
 <br>
-     <a href="/logout">Log Out</a>
+<nav>
+<h4>Logged In as:
+    <%=user.email%>
+</h4>
+<h4>
+    <li>
+        <% if (user) { %>
+        <a href="/logout">Sign Out</a>
+        <% } else { %>
+        <a href="/auth/google">Sign in with Google</a>
+        <% } %>
+</h4>
+</nav>
 </html>

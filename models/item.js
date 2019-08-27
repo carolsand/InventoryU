@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const itemsSchema = new Schema({
+    user: {
+        user: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+    },
     name: {
         type: String,
         required: true,
@@ -15,11 +18,11 @@ const itemsSchema = new Schema({
 
     },
     date: {
-        type: Number,
-        default: function () {
-            return Number() >= 0 || Number() <= 999999999 || /[[a-zA-Z].*/;
+        type: Date,
+        Date: function () {
+            return new Date(new Date).setFullYear(new Date().getFullYear() + 1);
         }
-    }
+    },
 });
 
 module.exports = mongoose.model('Items', itemsSchema);

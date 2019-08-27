@@ -1,7 +1,12 @@
 body {
+  background: #FFFFFF;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: mediumaquamarine;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
 }
 
 a {
@@ -12,8 +17,6 @@ a {
   /* color: #E84F65; */
   /* color: #E84F65; */
 }
-
-#new-form *,
 
 ul {
   margin: 0 0 1rem;
@@ -45,4 +48,18 @@ div {
   border: 2px solid darkblue;
   padding: 5px;
   font-weight: bold;
+}
+
+header {
+  position: absolute;
+  width: 1140px;
+  height: 64px;
+  left: 30px;
+  top: 64px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row 3fr;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif";
 }

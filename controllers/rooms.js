@@ -12,16 +12,22 @@ module.exports = {
 
 function newRoom(req, res) {
     res.render('rooms/new', {
-        title: 'Add Room'
+        title: 'Add Room',
+        user: req.user
     });
+    console.log(`${user}//// Inside newRoom controller function`);
 }
 
 function create(req, res) {
     var room = new Room(req.body);
+    var item = new Item(req.body);
     console.log(`In the create room controller the value of room is: ${room}:${room._id }`);
-    room.save(function(err) {
+    room.save(function(err, room) {
         //handle errors
-    if (err) return res.render('rooms/new');
+    if (err) return res.render('rooms/new', {
+        title: 'InventoryU',
+        user: req.user
+    });
     res.redirect(`rooms/${room._id }`);
     });
 }
@@ -29,12 +35,16 @@ function create(req, res) {
 function index(req, res) {
     console.log('hello')
     Room.find({}, function(err, rooms) {
-        console.log(rooms);
-        res.render('rooms/index', {
-            title: 'InventoryU',
-            rooms
-        });
-    });
+        Item.find({}, function(err, item){
+           console.log(rooms);
+           res.render('rooms/index', {
+               title: 'InventoryU',
+               rooms,
+               item,
+               user: req.user
+        })
+     });
+ });
 }
 
 function deleteRoom(req, res) {
@@ -44,17 +54,11 @@ function deleteRoom(req, res) {
         res.redirect('rooms');
     });
 }
-// function show(req, res){
-//   Room.find(req.body, function(err, rooms){
-//     res.render('rooms/show', {title: 'Rooms', rooms});
-//     console.log('In the create room controller//////////');
-//   });
-// }
 
 function show(req, res) {
     console.log('In the show room ctrlr function//////////');
-    Rooms.find(req.body,function(err, rooms){
-        console.log(`${rooms}////////////////`);
+    Room.find(req.body,function(err, room){
+        console.log(`${room}////////////////`);
     })
     Room.findById(req.params.id, function(err, room) {
         // Item.find({}).where('_id').nin(room.item)
@@ -66,7 +70,8 @@ function show(req, res) {
             res.render('rooms/show', {
                 title: `${room}`,
                 room,
-                items
+                items,
+                user: req.user
             });
         });
     });

@@ -31,7 +31,8 @@ function newItem(req, res) {
     console.log(`INSIDE newItem of items.js ${req.params.id}`);
     res.render('items/new', {
       title: 'Items Added To Your Room',
-      items
+      items,
+      user: req.user,
     });
   })
 }
