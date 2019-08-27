@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <!-- add to room form below -->
-<form id="add-room" action="/rooms" method="POST">
+<form id="add-room" action="/rooms/:id" method="POST">
     <label>Room</label>
     <select name="room">
     <option value="LVRM">Living Room</option>
@@ -15,10 +15,9 @@
     <option value="MUSICROOM">Music Room</option>
 </select>
 </form>
-
-<h2>Items</h2>
+<br>
 <form id="add-per-to-room" method="POST" action="/items">
-  <label>Description:</label>
+  <label>Item Description:</label>
   <textarea name="content"></textarea>
   <select name="items">
     <option value="DESK">DESK</option>

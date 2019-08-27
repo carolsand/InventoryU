@@ -12,9 +12,7 @@ module.exports = {
 
 function newRoom(req, res) {
     res.render('rooms/new', {
-        title: `${room}`,
-        room,
-        items
+        title: 'Add Room'
     });
 }
 
@@ -30,12 +28,11 @@ function create(req, res) {
 
 function index(req, res) {
     console.log('hello')
-    Room.find({}, function(err, room) {
-        console.log(`${room} INDEX//////////`);
+    Room.find({}, function(err, rooms) {
+        console.log(rooms);
         res.render('rooms/index', {
-            title: `${room}`,
-            room,
-            items
+            title: 'InventoryU',
+            rooms
         });
     });
 }
@@ -55,7 +52,7 @@ function deleteRoom(req, res) {
 // }
 
 function show(req, res) {
-    console.log('In the show room controller//////////');
+    console.log('In the show room ctrlr function//////////');
     Rooms.find(req.body,function(err, rooms){
         console.log(`${rooms}////////////////`);
     })

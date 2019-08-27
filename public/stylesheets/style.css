@@ -1,32 +1,19 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: orangered;
+  background-color: mediumaquamarine;
 }
 
 a {
   /* color: rgb(166, 255, 0); */
-  color: #4AD8FF;
+  color: rgb(3, 17, 20);
   /* color: rgb(177, 255, 74); */
   /* color: #BC1AF0; */
   /* color: #E84F65; */
   /* color: #E84F65; */
-  border-radius: 15%;
 }
 
 #new-form *,
-#add-flight-form *,
-#add-ticket-form * {
-  font-size: 20px;
-}
-#add-flight-form,
-#add-ticket-form {
-  display: grid;
-}   
-#add-flight-form input[type="submit"],
-#add-ticket-form input[type="submit"] {
-  width: 10rem;
-}   
 
 ul {
   margin: 0 0 1rem;
@@ -38,18 +25,23 @@ li {
   font-weight: bold;
 }
 
+title {
+  color: black;
+}
 table, th, td {
   border: 2px solid darkblue;
+  border-radius: 5%;
   padding: 5px;
   background-color: blanchedalmond;
   font-weight: bold;
 }
+
 table {
   border-spacing: 10px;
 }
+
 div {
-  display: block;
-  border-radius: 25%;
+  border-radius: 5%;
   border: 2px solid darkblue;
   padding: 5px;
   font-weight: bold;
