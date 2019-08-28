@@ -48,3 +48,64 @@ show.ejs
 
 
 <%- items.map(rm => `<option value="${rm._id}">${rm.name}</option>`).join('') %>
+
+
+========================
+<!-- add to room form below -->
+  <form id="show-room" action="/rooms" method="GET">
+    <label>Choose Room</label>
+    <select name="room">
+      <option value="LVRM">Living Room</option>
+      <option value="KTCH">Kitchen</option>
+      <option value="BEDRM">Bed Room</option>
+      <option value="KITCN">Kitchen</option>
+      <option value="GUESTRM">Guest Room</option>
+      <option value="DNGROOM">Dining Room</option>
+      <option value="GARAGE">Dining Room</option>
+      <option value="DEN">Dining Room</option>
+      <option value="OFFICE">Dining Room</option>
+      <option value="MUSICROOM">Music Room</option>
+    </select>
+    <br>
+    <br>
+    
+<table>
+  <thead>
+    <tr>
+      <th>Room  </th>
+      <th>Asset </th>
+      <th>Details </th>
+      <th>Delete </th>
+    </tr>
+  </thead>
+====================
+ <a id="newTicket" href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
+  
+  <h2>Destinations</h2>
+  <% if (flight.destinations.length > 0) { %>
+  <% flight.destinations.forEach(function(ds) { %>
+  <div>Arrives:
+    <%=  ds.arrival %>
+  </div>
+  <div>Airport:
+    <%= ds.airport %>
+  </div>
+  <% }) %>
+  <% } %>
+  <br>
+  <form id="add-per-to-destination" action="/flights/<%= flight._id%>/destinations" method="POST">
+    <label>Airport</label>
+    <select name="airport">
+      <option value="SFO">San Francisco</option>
+      <option value="OAK">Oakland</option>
+      <option value="LAX">Los Angeles</option>
+      <option value="SEA">Seattle</option>
+      <option value="LHR">Heathrow</option>
+      <option value="TLV">Ben Gurion</option>
+    </select>
+    <input type="datetime-local" id="departures" name="arrival" value="2019-08-08T00:10" min="2019-0808T00:00" max="2020-08-08T:00">
+    <input value="Add to Flight" type="submit" />
+  </form>
+
+   <form action="/flights/<%= flight._id%>/tickets/<%=t._id %>?_method=DELETE" method="POST"><button>Delete Ticket</button></form>
+    <% }) %>
