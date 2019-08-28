@@ -6,6 +6,7 @@ const roomsController = require('../controllers/rooms');
 // router.get('/', roomsController.X);
 router.get('/', roomsController.index);
 router.get('/new', roomsController.new);
+router.get('/show', roomsController.showAll);
 router.get('/:id', roomsController.show);
 router.post('/new', roomsController.create);
 

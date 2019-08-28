@@ -1,54 +1,29 @@
 <%- include('../partials/header') %>
-
-<section id="show-page">
-  <div>Title: </div>
-  <div><%= room.title %></div>
-  <div> <%= room.description %></div>
-  <ul>
-    <%- room.item.map(p => 
-      `<li>${p.name} <small>${p.item.toLocaleDateString()}</small></li>`
-    ).join('') %>
-  </ul>
-</section>
-
-<form id="add-per-to-room" action="/rooms/<%= romm._id%>/items" method="POST">
-  <select name="itemId">
-    <%- items.map(p => `<option value="${p._id}">${p.name}</option>`).join('') %>
-  </select>
-  <button type="submit">Add to Room</button>
-</form>
-
-<% if (room.items.length) { %>
-<table>
+  <!-- add to room form below -->
+  <form id="show-room" action="/rooms" method="GET">
+    <label>Choose Room</label>
+    <select name="room">
+      <option value="LVRM">Living Room</option>
+      <option value="KTCH">Kitchen</option>
+      <option value="BEDRM">Bed Room</option>
+      <option value="KITCN">Kitchen</option>
+      <option value="GUESTRM">Guest Room</option>
+      <option value="DNGROOM">Dining Room</option>
+      <option value="GARAGE">Dining Room</option>
+      <option value="DEN">Dining Room</option>
+      <option value="OFFICE">Dining Room</option>
+      <option value="MUSICROOM">Music Room</option>
+    </select>
+    <br>
+    <br>
+    <%= room %>
+<!-- <table>
   <thead>
     <tr>
-      <th>Room</th>
-      <th>Item</th>
-      <th>Description</th>
+      <th>Room  </th>
+      <th>Asset </th>
+      <th>Details </th>
+      <th>Delete </th>
     </tr>
-  </thead>
-  <tbody>
-    <% room.items.forEach(function(r) { %>
-    <tr>
-      <td>
-        <%= r.createdAt.toLocaleDateString() %>
-      </td>
-      <td>
-        <%= r.items %>
-      </td>
-      <td>
-        <%= r.description %>
-      </td>
-    </tr>
-    <% }); %>
-    <tr>
-      <td colspan="2"></td>
-    </tr>
-  </tbody>
-</table>
-<% } else { %>
-<h5>No Items Yet</h5>
-<% } %>
-
-
-<%- include('../partials/footer') %>
+  </thead> -->
+  <%- include('../partials/footer') %>

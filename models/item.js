@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 
 const itemsSchema = new Schema({
     user: {
-        user: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+        user: { type: Schema.Types.ObjectId, ref: 'User' },
     },
-    name: {
+    asName: {
         type: String,
         required: true,
         enum: ['DESK', 'OCHAIR', 'BED', 'FOOTREST', 'LOUNGECHAIR', 'TV', 'TABLE', 'TBLCHAIR', 'CARPET', 'REFRIGERATOR', 'KTABLE', 'KCHAIR', 'STOVE', 'MICROWAVE', 'STOVE', 'BLENDER', 'STEREOSYSTEM', 'TIVO', 'GUITAR']
     },
-    description: {
+    asDescript: {
         type: String,
         default: function() {
             return Number() >= 0 || Number() <= 999999999 || /[[a-zA-Z].*/;
@@ -23,6 +23,11 @@ const itemsSchema = new Schema({
             return new Date(new Date).setFullYear(new Date().getFullYear() + 1);
         }
     },
+    price: {
+        type: Number,
+        min: 0
+    },
+    room: [{ type: Schema.Types.ObjectId, ref: 'Room' }],
 });
 
 module.exports = mongoose.model('Items', itemsSchema);

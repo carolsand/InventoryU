@@ -7,30 +7,37 @@ module.exports = {
     show,
     new: newRoom,
     create,
-    delete: deleteRoom
+    delete: deleteRoom,
+    showAll
 }
 
 function newRoom(req, res) {
+    var rooms = new Room(req.params.body);
+    var items = new Item(req.params.body);
     res.render('rooms/new', {
         title: 'Add Room',
-        user: req.user
+        user: req.user,
+        items,
+        rooms
     });
-    console.log(`${user}//// Inside newRoom controller function`);
 }
 
 function create(req, res) {
+    // convert nowShowing's checkbox of nothing or "on" to boolean
+    // req.body.nowShowing = !!req.body.nowShowing;
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
     var room = new Room(req.body);
-    var item = new Item(req.body);
+    console.log(req.body);
+    room.save(function (err) {
+        if (err) return res.redirect('/rooms/new');
+        // res.redirect('/movies');
+        res.redirect(`/rooms/${room._id}`);
+    });
     console.log(`In the create room controller the value of room is: ${room}:${room._id }`);
-    room.save(function(err, room) {
-        //handle errors
-    if (err) return res.render('rooms/new', {
-        title: 'InventoryU',
-        user: req.user
-    });
-    res.redirect(`rooms/${room._id }`);
-    });
 }
+
 
 function index(req, res) {
     console.log('hello')
@@ -57,22 +64,28 @@ function deleteRoom(req, res) {
 
 function show(req, res) {
     console.log('In the show room ctrlr function//////////');
-    Room.find(req.body,function(err, room){
-        console.log(`${room}////////////////`);
-    })
     Room.findById(req.params.id, function(err, room) {
-        // Item.find({}).where('_id').nin(room.item)
-        console.log(req.params.id)
-        Item.find({
-            room: req.params.id
-        }, function(err, items) {
-            console.log(items);
-            res.render('rooms/show', {
-                title: `${room}`,
-                room,
-                items,
-                user: req.user
-            });
+    //    Item.find({room: req.params.id}, function(err, item) {
+        console.log(room);
+        res.render('rooms/new', {
+            title: `${room}`, 
+            room, 
+            user: req.user
         });
     });
+//   });
+}
+
+function showAll(req, res) {
+    console.log('In the showAll room ctrlr function//////////');
+    Room.find({}, function (err, rooms) {
+        //    Item.find({room: req.params.id}, function(err, item) {
+        console.log(rooms);
+        res.render('rooms/show', {
+            // title: `${title}`,
+            rooms,
+            user: req.user
+        });
+    });
+    //   });
 }

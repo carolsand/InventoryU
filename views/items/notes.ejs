@@ -1,0 +1,74 @@
+<%- include('../partials/header') %>
+<%= title %>
+<br>
+<form id="add-per-to-room" method="POST" action="/items">
+  <label>Item Description:</label>
+  <textarea name="content"></textarea>
+  <select name="name">
+    <option value="DESK">DESK</option>
+    <option value="OCHAIR">Office Chair</option>
+    <option value="BED">Bed</option>
+    <option value="FOOTREST">Foot Rest</option>
+    <option value="LOUNGECHAIR">Lounge Chair</option>
+    <option value="TV">Dining Room</option>
+    <option value="TV">Television</option>
+    <option value="TABLE">Table</option>
+    <option value="TBLCHAIR">Table Chair</option>
+    <option value="KCHAIR">Kitchen Chair</option>
+    <option value="KCHAIR">Kitchen Table</option>
+    <option value="STOVE">Stove</option>
+    <option value="BLENDER">Blender</option>
+    <option value="GUITAR">Guitar</option>
+    <option value="FRIG">Refrigator</option>
+  </select>
+  <input type="submit" value="Add Item">
+</form>
+<form id="add-items-form" action="/items" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Description:</label>
+  <% items.forEach(function(it) { %>
+  <option>
+    <%= it.name %>
+  </option>
+  <% }) %>
+  <input type="text" value="description">
+  <input type="submit" value="Add Item">
+</form>
+<form action="/items" method="POST">
+  <label for="name">Select Create Record Date:</label>
+  <input type="date-time-local" name="date" value="2019-08-08T00:10" min="2019-0808T00:00" max="2050-08-08T:00">
+
+  <input type="submit" value="Add Item">
+
+  <% items.forEach(function(f) { %>
+  <tr>
+    <td>
+      <%= f.name %>
+    </td>
+    <td>
+      <%= f.description %>
+    </td>
+    <td>
+      <%= f.date %>
+    </td>
+    <td> <a href='rooms/<%= f._id %>'>Details</a></td>
+    <td>
+      <form action="rooms/<%= f._id%>?_method=DELETE" method="POST"><button>Delete Item</button></form>
+    </td>
+  </tr>
+  <% }); %>
+</form>
+<table>
+  <thead>
+    <tr>
+      <th>Room </th>
+      <th>Description </th>
+      <th>Item </th>
+      <th>Description </th>
+      <th>Date </th>
+    </tr>
+  </thead>
+  <tbody>
+    <br>
+    <%- include('../partials/footer') %>
