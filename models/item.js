@@ -15,7 +15,6 @@ const itemsSchema = new Schema({
         default: function() {
             return Number() >= 0 || Number() <= 999999999 || /[[a-zA-Z].*/;
         }
-
     },
     date: {
         type: Date,
@@ -27,7 +26,7 @@ const itemsSchema = new Schema({
         type: Number,
         min: 0
     },
-    room: [{ type: Schema.Types.ObjectId, ref: 'Room' }],
+    room: { type: Schema.Types.ObjectId, ref: 'Room' },
 });
 
 module.exports = mongoose.model('Items', itemsSchema);

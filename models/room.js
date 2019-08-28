@@ -11,12 +11,8 @@ const userSchema = new Schema({
     });
 
 const roomSchema = new Schema({
-    user: {
-        user: { type: Schema.Types.ObjectId, ref: 'User' }
-    },
-    item: {
-        item:{ type: Schema.Types.ObjectId, ref: 'Item' }
-    },
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    items: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
     name: {
         type: String,
         required: true,

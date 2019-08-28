@@ -16,7 +16,7 @@
 <!-- <a id="newRoom" href="/room/<%= room._id %>/rooms/new">New Room</a> -->
 
 
-<!-- <% if (room.items.length > 0) { %>
+<% if (room.items.length > 0) { %>
     <% room.items.forEach(function(ds) { %>
     <div>Rooms:
         <%=  ds.room %>
@@ -25,14 +25,14 @@
         <%= ds.item %>
     </div>
     <% }) %>
-<% } %> -->
+<% } %> 
 
 <input type="datetime-local" id="item" name="item" value="2019-08-25T00:10" min="2019-0825T00:00" max="2030-08-08T:00">
 
 
 ===========================================
 show.ejs
-<form id="add-per-to-room" action="/rooms/<%= romm._id%>/items" method="POST">
+<form id="add-per-to-room" action="/rooms/<%= room._id%>/items" method="POST">
   <select name="itemId">
     <%- items.map(p => `<option value="${p._id}">${p.name}</option>`).join('') %>
   </select>
@@ -45,3 +45,6 @@ show.ejs
     ).join('') %>
 </ul>
 <% if (rooms.length > 0) { %>
+
+
+<%- items.map(rm => `<option value="${rm._id}">${rm.name}</option>`).join('') %>

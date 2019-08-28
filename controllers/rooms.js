@@ -23,12 +23,11 @@ function newRoom(req, res) {
 }
 
 function create(req, res) {
-    // convert nowShowing's checkbox of nothing or "on" to boolean
-    // req.body.nowShowing = !!req.body.nowShowing;
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
     var room = new Room(req.body);
+    room.user = req.user._id;
     console.log(req.body);
     room.save(function (err) {
         if (err) return res.redirect('/rooms/new');
@@ -38,6 +37,17 @@ function create(req, res) {
     console.log(`In the create room controller the value of room is: ${room}:${room._id }`);
 }
 
+function show(req, res) {
+    console.log('In the show room ctrlr function//////////');
+    Room.findById(req.params.id, function (err, room) {
+        console.log(room);
+        res.render('rooms/new', {
+            title: `${room}`,
+            room,
+            user: req.user
+        });
+    });
+}
 
 function index(req, res) {
     console.log('hello')
@@ -60,20 +70,6 @@ function deleteRoom(req, res) {
     }, function(err) {
         res.redirect('rooms');
     });
-}
-
-function show(req, res) {
-    console.log('In the show room ctrlr function//////////');
-    Room.findById(req.params.id, function(err, room) {
-    //    Item.find({room: req.params.id}, function(err, item) {
-        console.log(room);
-        res.render('rooms/new', {
-            title: `${room}`, 
-            room, 
-            user: req.user
-        });
-    });
-//   });
 }
 
 function showAll(req, res) {
