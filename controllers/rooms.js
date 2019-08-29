@@ -89,7 +89,7 @@ function showAll(req, res) {
 function updateRoom(req, res) {
     console.log('In the update function of the rooms ctrlr//////////');
     if (req.user) {
-        Room.findByIdAndUpdate(req.params.id, rooms.description, function (err, room) {
+        Room.findByIdAndUpdate(req.params.id, function (err) {
             if (err) console.log(err);
             res.redirect('rooms/show');
         });

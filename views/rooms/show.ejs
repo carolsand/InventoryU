@@ -18,7 +18,7 @@
         <td><%= rm.description %></td>
         <td> <a href='<%= rm._id %>'>Details</a></td>
         <td><form action="/rooms/<%= rm._id%>?_method=DELETE" method="POST"><button>Delete Room</button></form></td>
-        <td><form action="/rooms/<%= rm._id%>?_method=PUT" method="POST"><button>Update Room</button></form></td>
+        <!-- <td><form action="/rooms/<%= rm._id%>?_method=PUT" method="POST"><button>Update Room</button></form></td> -->
     </tr>
   <% }); %>
   </tbody>
