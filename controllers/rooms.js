@@ -87,6 +87,7 @@ function showAll(req, res) {
 }
 
 function updateRoom(req, res) {
+    console.log('In the update function of the rooms ctrlr//////////');
     if (req.user) {
         Room.findByIdAndUpdate(req.params.id, req.body, function (err, room) {
             if (err) console.log(err);
