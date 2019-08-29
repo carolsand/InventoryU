@@ -8,12 +8,9 @@ module.exports = {
 };
 
 function addToRoom(req, res) {
-  Room.findById({user: req.user._id}, req.params.id, function (err, room) {
-    console.log(`INSIDE addToRoom of items.js ${req.params.id}`);
-    room.item.push(req.body.itemId);
-    room.save(function (err) {
-      res.redirect(`rooms/${req.body.itemId}`);
-    });
+  req.body.room = req.params.id;
+  Item.create({user: req.user._id}, req.body, function(err){
+    res.redirect('/rooms/new');
   });
 }
 
@@ -32,12 +29,13 @@ function create(req, res) {
 function newItem(req, res) {
   /* Need to add a reference to the room the item is found in */
   Room.findById({ user: req.user._id }, req.params.id, function (err, room) {
-    Item.find({user: req.user._id}, function (err, items) {
+    Item.find({}, function (err, items) {
       console.log(`INSIDE newItem of items.js ${req.params.id}`);
-      res.render('items/new', {
-        title: 'Items Added To Your Room',
-        items,
-        room,
+      res.render('rooms/new', { title: 'Add Ticket', flightId: req.params.id });
+      res.render('rooms/new', {
+        title: 'Add Asset',
+        items: re,
+        room: room_.id,
         user: req.user,
       });
    });

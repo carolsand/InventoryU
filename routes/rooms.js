@@ -10,7 +10,7 @@ router.get('/new', roomsController.new);
 router.get('/show', roomsController.showAll);
 router.get('/:id', roomsController.show);
 router.post('/new', roomsController.create);
-router.get('/:id', roomsController.updateRoom);
+router.get('/:id/edit', roomsController.showRoomUpdate);
 router.put('/:id', roomsController.updateRoom);
 router.delete('/:id', roomsController.delete);
 

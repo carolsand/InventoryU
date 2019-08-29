@@ -8,10 +8,10 @@
             <p>Logged In as:
                 <%=user.name%>
                 </h4>
-                <a href="rooms/show" <%- title==='See All Assets' ? 'class="active"' : '' %>>See All Your Assets </a>
+                <a href="/rooms/show" <%- title==='See All Assets' ? 'class="active"' : '' %>>See All Your Assets </a>
                 <br>
                 <br>
-                <a href="rooms/new" <%- title==='Rooms and Assets' ? 'class="active"' : '' %>>Create Rooms and Add your Assests</a>
+                <a href="/rooms/new" <%- title==='Rooms and Assets' ? 'class="active"' : '' %>>Create Rooms and Add your Assests</a>
             </p>
         <a href="/logout">Sign Out</a>
         <% } else { %>

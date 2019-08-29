@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<form id="add-asset-form" action="/rooms/<%= rooms_.id %>/assets" method="POST">
+<form id="add-asset-form" action="/rooms/<%= rooms_:id %>/items" method="POST">
   <label>Asset:</label>
   <input type="text" name="name" required pattern="[A-F][1-9]\d?">
   <label>Price:</label>
@@ -10,4 +10,5 @@
   <label>Date of Purchase</label>
   <input type="date" name="date">
 </form>
+
 <%- include('../partials/footer') %>

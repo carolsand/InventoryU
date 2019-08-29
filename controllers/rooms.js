@@ -9,7 +9,8 @@ module.exports = {
     create,
     delete: deleteRoom,
     showAll,
-    updateRoom
+    updateRoom,
+    showRoomUpdate
 }
 
 function newRoom(req, res) {
@@ -68,7 +69,7 @@ function index(req, res) {
 function deleteRoom(req, res) {
     console.log('In the deelete room ctrlr function//////////');
     Room.deleteOne({'_id': req.params.id}, function(err) {
-        res.redirect('show');
+        res.redirect('/show');
     });
 }
 
@@ -86,12 +87,21 @@ function showAll(req, res) {
     //   });
 }
 
+function showRoomUpdate(req, res) {
+    console.log('In the showRoomUpdate function of the rooms ctrlr//////////');
+    if (req.user){
+     res.render(`rooms/update`, { room: req.params.id, user: req.user, title: 'InventoryU'});
+    }else {
+        res.redirect('/rooms/show');
+    }
+}
+
 function updateRoom(req, res) {
     console.log('In the update function of the rooms ctrlr//////////');
     if (req.user) {
-        Room.findByIdAndUpdate(req.params.id, function (err) {
+        Room.findByIdAndUpdate(req.params.id, req.body, function (err) {
             if (err) console.log(err);
-            res.redirect('rooms/show');
+            res.redirect(`/rooms/show`);
         });
-     } else { res.redirect('rooms/update') };
-    }
+    } else { res.redirect(`/rooms/${req.params.id}`) };
+}
