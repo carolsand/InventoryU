@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function addToRoom(req, res) {
-  Room.findById(req.params.id, function (err, room) {
+  Room.findById({user: req.user._id}, req.params.id, function (err, room) {
     console.log(`INSIDE addToRoom of items.js ${req.params.id}`);
     room.item.push(req.body.itemId);
     room.save(function (err) {
@@ -31,12 +31,15 @@ function create(req, res) {
 
 function newItem(req, res) {
   /* Need to add a reference to the room the item is found in */
-  Item.find({}, function (err, items) {
-    console.log(`INSIDE newItem of items.js ${req.params.id}`);
-    res.render('items/new', {
-      title: 'Items Added To Your Room',
-      items,
-      user: req.user,
-    });
+  Room.findById({ user: req.user._id }, req.params.id, function (err, room) {
+    Item.find({user: req.user._id}, function (err, items) {
+      console.log(`INSIDE newItem of items.js ${req.params.id}`);
+      res.render('items/new', {
+        title: 'Items Added To Your Room',
+        items,
+        room,
+        user: req.user,
+      });
+   });
   })
 }

@@ -7,14 +7,16 @@
         <% if (user) { %>
             <p>Logged In as:
                 <%=user.name%>
+                </h4>
+                <a href="rooms/show" <%- title==='See All Assets' ? 'class="active"' : '' %>>See All Your Assets </a>
+                <br>
+                <br>
+                <a href="rooms/new" <%- title==='Rooms and Assets' ? 'class="active"' : '' %>>Create Rooms and Add your Assests</a>
             </p>
         <a href="/logout">Sign Out</a>
         <% } else { %>
         <a href="/auth/google">Sign in with Google</a>
         <% } %>
-</h4>
-<a href="show" <%- title==='See All Assets' ? 'class="active"' : '' %>>See All Your Assets </a>
-<br>
-<a href="new" <%- title==='Rooms and Assets' ? 'class="active"' : '' %>>Create Rooms and Add your Assests</a>
+
 <!-- </nav> -->
 </html>

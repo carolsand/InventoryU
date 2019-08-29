@@ -52,7 +52,7 @@ function show(req, res) {
 
 function index(req, res) {
     console.log('hello')
-    Room.find({}, function(err, rooms) {
+    Room.find({user: req.user._id}, function(err, rooms) {
         Item.find({}, function(err, item){
            console.log(rooms);
            res.render('rooms/index', {
@@ -89,9 +89,9 @@ function showAll(req, res) {
 function updateRoom(req, res) {
     console.log('In the update function of the rooms ctrlr//////////');
     if (req.user) {
-        Room.findByIdAndUpdate(req.params.id, req.body, function (err, room) {
+        Room.findByIdAndUpdate(req.params.id, rooms.description, function (err, room) {
             if (err) console.log(err);
             res.redirect('rooms/show');
         });
-     } else { res.redirect('rooms/new') };
+     } else { res.redirect('rooms/update') };
     }
