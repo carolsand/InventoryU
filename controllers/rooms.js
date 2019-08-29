@@ -73,7 +73,7 @@ function deleteRoom(req, res) {
 
 function showAll(req, res) {
     console.log('In the showAll room ctrlr function//////////');
-    Room.find({}, function (err, rooms) {
+    Room.find({user: req.user._id}, function (err, rooms) {
         //    Item.find({room: req.params.id}, function(err, item) {
         console.log(rooms);
         res.render('rooms/show', {
