@@ -36,11 +36,9 @@ function create(req, res) {
         // res.redirect('/movies');
         res.redirect(`/rooms/${room._id}`);
     });
-    console.log(`In the create room controller the value of room is: ${room}:${room._id }`);
 }
 
 function show(req, res) {
-    console.log('In the show room ctrlr function//////////');
     Room.findById(req.params.id, function (err, room) {
         console.log(room);
         res.render('rooms/new', {
@@ -67,14 +65,12 @@ function index(req, res) {
 }
 
 function deleteRoom(req, res) {
-    console.log('In the deelete room ctrlr function//////////');
     Room.deleteOne({'_id': req.params.id}, function(err) {
         res.redirect('show');
     });
 }
 
 function showAll(req, res) {
-    console.log('In the showAll room ctrlr function//////////');
     Room.find({user: req.user._id}, function (err, rooms) {
         //    Item.find({room: req.params.id}, function(err, item) {
         console.log(rooms);
@@ -88,7 +84,6 @@ function showAll(req, res) {
 }
 
 function showRoomUpdate(req, res) {
-    console.log('In the showRoomUpdate function of the rooms ctrlr//////////');
     if (req.user){
      res.render(`rooms/update`, { room: req.params.id, user: req.user, title: 'InventoryU'});
     }else {
@@ -97,7 +92,6 @@ function showRoomUpdate(req, res) {
 }
 
 function updateRoom(req, res) {
-    console.log('In the update function of the rooms ctrlr//////////');
     if (req.user) {
         Room.findByIdAndUpdate(req.params.id, req.body, function (err) {
             if (err) console.log(err);

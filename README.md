@@ -1,4 +1,7 @@
-<Your game's title>: A description of your game. Background info of the game is a nice touch.
+#InventoryU:
+**Descripton**
+InventoryU is your resource for documenting and retrieving all your personal assets. Born out of necessity, residents face hurdles when placing claims to their insurance companies for reembursement of lost assets. InveentoryU will allow you to create a room and add assets or items in your room. You can also delete rooms and items if you 
+ A description of your game. Background info of the game is a nice touch.
 
 ☐ Screenshot(s): Images of your actual game.
 
