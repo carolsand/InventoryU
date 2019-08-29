@@ -2,18 +2,19 @@
 </body>
 <br>
 <br>
-<nav>
+<!-- <nav> -->
 <h4>
-    <li>
         <% if (user) { %>
-            <h4>Logged In as:
-                <%=user.email%>
-            </h4>
+            <p>Logged In as:
+                <%=user.name%>
+            </p>
         <a href="/logout">Sign Out</a>
         <% } else { %>
         <a href="/auth/google">Sign in with Google</a>
         <% } %>
-        </li>
 </h4>
-</nav>
+<a href="show" <%- title==='See All Assets' ? 'class="active"' : '' %>>See All Your Assets </a>
+<br>
+<a href="new" <%- title==='Rooms and Assets' ? 'class="active"' : '' %>>Create Rooms and Add your Assests</a>
+<!-- </nav> -->
 </html>

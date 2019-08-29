@@ -5,7 +5,7 @@
 }
 
 body {
-  background: aliceblue;
+  background-color: aliceblue;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   position: absolute;
@@ -15,13 +15,27 @@ body {
   bottom: 0%;
   background-image: url("./Fire1.jpg");
 }
+
+/* button {
+  position: absolute;
+  width: 56px;
+  height: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.0125em;
+  color: #000000;
+
+} */
+
 h1 {
   position: absolute;
   left: 30.25%;
   right: 30.17%;
   top: 33.8%;
   bottom: 54.9%;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -52,7 +66,7 @@ footer {
   position: absolute;
   left: 35.25%;
   right: 30.17%;
-  top: 73.8%;
+  top: 83.8%;
   bottom: 64.9%;
   font-family: Roboto;
   font-style: normal;
@@ -63,10 +77,9 @@ footer {
 }
 
 li {
-  background: darkorange;
   border: 1px solid #E5E5E5;
   box-sizing: border-box;
-  border-radius: 3px;
+  border-radius: 15%;
 }
 
 a {
@@ -88,7 +101,8 @@ title {
 }
 
 table, th, td {
-  border: 2px solid darkblue;
+  /* position: relative; */
+  border: 2px solid darkred;
   border-radius: 5%;
   padding: 5px;
   background-color: aliceblue;
@@ -106,13 +120,13 @@ div {
   font-weight: bold;
 }
 
-header {
+/* header {
   position: absolute;
   width: 1140px;
   height: 64px;
   left: 30px;
   top: 64px;
-}
+} */
 
 nav {
   display: flex;

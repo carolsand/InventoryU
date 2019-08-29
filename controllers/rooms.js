@@ -43,7 +43,7 @@ function show(req, res) {
     Room.findById(req.params.id, function (err, room) {
         console.log(room);
         res.render('rooms/new', {
-            title: `${room}`,
+            title: `InventoryU`,
             room,
             user: req.user
         });
@@ -78,7 +78,7 @@ function showAll(req, res) {
         //    Item.find({room: req.params.id}, function(err, item) {
         console.log(rooms);
         res.render('rooms/show', {
-            // title: `${title}`,
+            title: `InventoryU}`,
             rooms,
             user: req.user
         });
