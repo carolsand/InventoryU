@@ -90,7 +90,7 @@ function updateRoom(req, res) {
     if (req.user) {
         Room.findByIdAndUpdate(req.params.id, req.body, function (err, room) {
             if (err) console.log(err);
-            res.redirect('/rooms/show');
+            res.redirect('rooms/show');
         });
-     } else { res.redirect('/rooms/new') };
+     } else { res.redirect('rooms/new') };
     }
