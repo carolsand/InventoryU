@@ -10,6 +10,7 @@ router.get('/new', roomsController.new);
 router.get('/show', roomsController.showAll);
 router.get('/:id', roomsController.show);
 router.post('/new', roomsController.create);
+router.update('/:id', roomsController.updateRoom);
 router.delete('/:id', roomsController.delete);
 
 module.exports = router;

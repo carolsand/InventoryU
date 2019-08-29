@@ -8,7 +8,8 @@ module.exports = {
     new: newRoom,
     create,
     delete: deleteRoom,
-    showAll
+    showAll,
+    updateRoom
 }
 
 function newRoom(req, res) {
@@ -84,3 +85,12 @@ function showAll(req, res) {
     });
     //   });
 }
+
+function updateRoom(req, res) {
+    if (req.user) {
+        Room.findByIdAndUpdate(req.params.id, req.body, function (err, room) {
+            if (err) console.log(err);
+            res.redirect('/rooms/show');
+        });
+     } else { res.redirect('/rooms/new') };
+    }
