@@ -69,7 +69,7 @@ function index(req, res) {
 function deleteRoom(req, res) {
     console.log('In the deelete room ctrlr function//////////');
     Room.deleteOne({'_id': req.params.id}, function(err) {
-        res.redirect('/show');
+        res.redirect('show');
     });
 }
 
