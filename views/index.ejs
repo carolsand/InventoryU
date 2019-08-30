@@ -13,15 +13,17 @@
     </h1>
     <p>Welcome to <%= title %></p>
     <br>
-</body>
+
 <h5>Take Inventory of your assets BEFORE disaster strikes</h5>
-</html>
+
 <ul class="right">
-    <nav>
     <% if (user) { %>
         <a href="/logout">Log Out</a>
         <% } else { %>
         <a href="/auth/google">Login with Google</a>
     <% } %>
-        </nav>
 </ul>
+<br>
+</body>
+<br>
+</html>

@@ -16,20 +16,6 @@ body {
   background-image: url("./Fire2.png");
 }
 
-/* button {
-  position: absolute;
-  width: 56px;
-  height: 16px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.0125em;
-  color: #000000;
-
-} */
-
 h1 {
   position: absolute;
   left: 30.25%;
@@ -56,6 +42,7 @@ h5 {
   bottom: 64.9%;
   font-family: Roboto;
   font-style: normal;
+  font-size: 95%;
   display: flex;
   align-items: center;
   text-align: center;
@@ -102,10 +89,13 @@ title {
 
 table, th, td {
   /* position: relative; */
-  border: 2px solid darkred;
+  border: 2px solid darkorange;
   border-radius: 5%;
   padding: 5px;
   background-color: aliceblue;
+  font-weight: bold;
+}
+table#th {
   font-weight: bold;
 }
 
@@ -114,19 +104,9 @@ table {
 }
 
 div {
-  /* border-radius: 5%; */
-  /* border: 2px solid darkblue; */
   padding: 5px;
   font-weight: bold;
 }
-
-/* header {
-  position: absolute;
-  width: 1140px;
-  height: 64px;
-  left: 30px;
-  top: 64px;
-} */
 
 nav {
   display: flex;
