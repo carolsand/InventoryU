@@ -1,18 +1,25 @@
-#InventoryU:
+# InventoryU:
+
 Don't scramble to remember what you had.
 Store it here!
 
 **Descripton**
+
+Have you ever experienced the frustration of submitting a renter’s insurance claim? Where did that receipt go? When was it that you purchased that flat screen tv, and how much did it cost?
+InventoryU is an app that helps residents of homes and apartments keep track of their assets.
+
 InventoryU is your resource for documenting and retrieving all your personal assets. Born out of necessity, residents face hurdles when placing claims to their insurance companies for reembursement of lost assets. InveentoryU will allow you to create a room and add assets or items in your room. You can also delete rooms and items from your room.
 
-☐ Screenshot(s): Images of your actual game.
+
+**Screenshots**
+
   ![Login](InventoryU-Login.png)
   ![Login Google](InventoryU-google.png)
   ![Creeate Room](InventoryU-CreateRoom.png)
   ![Rooms View](InventoryU-Rooms.png)
 
 
-☐ Technologies Used: 
+**Technologies Used**
   1. HTML 
   2. CSS 
   3. MongoDB 
@@ -20,12 +27,16 @@ InventoryU is your resource for documenting and retrieving all your personal ass
   5. JavaScript 
   6. Express
 
-☐ Getting Started: 
-  [InventoryU](https://inventoryu.herokuapp.com/)
+**Getting Started** 
+[InventoryU](https://inventoryu.herokuapp.com/)
+
 Log in with your favorite Google account to get started.
 
 
-☐ Next Steps: Planned future enhancements (icebox items).
+**Next Steps**
+
+**Planned future enhancements (icebox items)**
+
 1. Allow Custom rooms
 2. Allow users to store more details about their assets.
 3. Allow users to export their inventory per room or all rooms to an xslx file
