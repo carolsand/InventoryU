@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
-<label>Room Description for: <%= room %></label>
+<label>Enter Room Description <%= room.name %></label>
 <form action="/rooms/<%= room %>?_method=PUT" method="POST">
   <textarea name="description"></textarea>
+  <br>
   <button type="submit">Update Room Description</button>
 </form>
 

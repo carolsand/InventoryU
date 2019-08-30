@@ -85,7 +85,7 @@ function showAll(req, res) {
 
 function showRoomUpdate(req, res) {
     if (req.user){
-     res.render(`rooms/update`, { room: req.params.id, user: req.user, title: 'InventoryU'});
+     res.render(`rooms/update`, { room: req.params.id, name: req.body, user: req.user, title: 'InventoryU'});
     }else {
         res.redirect('/rooms/show');
     }

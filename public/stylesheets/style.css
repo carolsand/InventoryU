@@ -95,9 +95,6 @@ table, th, td {
   background-color: aliceblue;
   font-weight: bold;
 }
-table#th {
-  font-weight: bold;
-}
 
 table {
   border-spacing: 10px;
