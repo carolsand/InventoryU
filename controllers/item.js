@@ -8,6 +8,7 @@ module.exports = {
 };
 
 function addToRoom(req, res) {
+  Room.findById({})
   req.body.room = req.params.id;
   Item.create({user: req.user._id}, req.body, function(err){
     res.redirect('/rooms/new');
@@ -31,10 +32,9 @@ function newItem(req, res) {
   Room.findById({ user: req.user._id }, req.params.id, function (err, room) {
     Item.find({}, function (err, items) {
       console.log(`INSIDE newItem of items.js ${req.params.id}`);
-      res.render('rooms/new', { title: 'Add Ticket', flightId: req.params.id });
-      res.render('rooms/new', {
+      res.render('rooms/:id/new', {
         title: 'Add Asset',
-        items: re,
+        items: items.params.id,
         room: room_.id,
         user: req.user,
       });
