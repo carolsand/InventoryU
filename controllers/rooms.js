@@ -85,7 +85,7 @@ function showAll(req, res) {
 
 function showRoomUpdate(req, res) {
     if (req.user){
-     res.render(`rooms/update`, { room: req.params.id, name: req.body, user: req.user, title: 'InventoryU'});
+     res.render(`rooms/update`, { room: req.params.id,  user: req.user, title: 'InventoryU'});
     }else {
         res.redirect('/rooms/show');
     }
@@ -94,7 +94,7 @@ function showRoomUpdate(req, res) {
 function updateRoom(req, res) {
     if (req.user) {
         Room.findByIdAndUpdate(req.params.id, req.body, function (err) {
-            if (err) console.log(err);
+            if (err);
             res.redirect(`/rooms/show`);
         });
     } else { res.redirect(`/rooms/${req.params.id}`) };
