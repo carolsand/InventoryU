@@ -63,7 +63,7 @@ class App extends Component {
                   handleSignupOrLogin={this.handleSignupOrLogin}
                 />
               } />
-              <Route exact path='/profile-page' render={() =>
+              <Route exact path='/profile' render={() =>
                 this.state.user ?
                 <ProfilePage
                   user={this.state.user}

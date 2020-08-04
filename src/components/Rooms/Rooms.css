@@ -1,4 +1,4 @@
-.Profile {
+.Room {
     display: flex;
     justify-content: center;
     padding: .3%;
@@ -7,6 +7,6 @@
     opacity: .9;
 }
 
-.Profile :hover {
+.Room :hover {
     color: rgb(118, 193, 243);
 }

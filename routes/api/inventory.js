@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const roomsController = require('../../controllers/rooms');
+const inventoryController = require('../../controllers/inventory');
 
-console.log('We are in the room router');
+console.log('Reached: /routes/api/inventory');
 
 /* GET pages: index, new room, show inventory, create room */
-// router.crud-operation('/', roomsController.X);
-router.get('/', roomsController.index);
-router.get('/new', roomsController.new);
-router.get('/show', roomsController.showAll);
-router.get('/:id', roomsController.show);
-router.post('/new', roomsController.create);
-router.get('/:id/edit', roomsController.showRoomUpdate);
-router.put('/:id', roomsController.updateRoom);
-router.delete('/:id', roomsController.delete);
+// router.crud-operation('/', inventoryController.X);
+// router.get('/', inventoryController.index);
+router.get('/new', inventoryController.new);
+router.get('/show', inventoryController.showAll);
+router.get('/:id', inventoryController.show);
+router.post('/new', inventoryController.create);
+router.get('/:id/edit', inventoryController.showInventoryUpdate);
+router.put('/:id', inventoryController.updateInventory);
+router.delete('/:id', inventoryController.delete);
 
 module.exports = router;

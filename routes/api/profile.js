@@ -4,6 +4,8 @@ var express = require('express');
 var router = express.Router();
 var profileController = require('../../controllers/profile');
 
+console.log('Reached:: /routes/api/profile');
+
 router.get('/profile/new', profileController.new);
 // router.put('/profile/:id/', profileController.update);
 router.get('/profile/:id/', profileController.getProfile);
