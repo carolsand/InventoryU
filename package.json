@@ -1,0 +1,53 @@
+{
+    "name": "inventoryu_npx_react",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.5.0",
+        "@testing-library/user-event": "^7.2.1",
+        "bcrypt": "^3.0.8",
+        "bootstrap": "^4.5.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "heroku": "^7.42.5",
+        "history": "^5.0.0",
+        "jsonwebtoken": "^8.5.1",
+        "materialize": "^1.0.0",
+        "mongoose": "^5.9.26",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.4",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router": "^6.0.0-beta.0",
+        "react-router-dom": "^6.0.0-beta.0",
+        "react-scripts": "3.4.1",
+        "router": "^1.3.5",
+        "serve-favicon": "^2.5.0",
+        "typescript": "^3.9.7",
+        "unirest": "^0.6.0",
+        "util": "^0.12.3"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "heroku-postbuild": "npm run build"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

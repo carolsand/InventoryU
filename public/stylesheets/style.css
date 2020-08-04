@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: #424748;
+}
+
+body {
+  background-color: aliceblue;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background-image: url("./Fire2.png");
+}
+
+h1 {
+  position: absolute;
+  left: 30.25%;
+  right: 30.17%;
+  top: 33.8%;
+  bottom: 54.9%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 112px;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+h5 {
+  position: absolute;
+  left: 32.25%;
+  right: 30.17%;
+  top: 45.8%;
+  bottom: 64.9%;
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 95%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+footer {
+  position: absolute;
+  left: 35.25%;
+  right: 30.17%;
+  top: 83.8%;
+  bottom: 64.9%;
+  font-family: Roboto;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+li {
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 15%;
+}
+
+a {
+  color: rgb(3, 17, 20);
+}
+
+ul {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  font-weight: bold;
+}
+
+title {
+  color: black;
+}
+
+table, th, td {
+  /* position: relative; */
+  border: 2px solid darkorange;
+  border-radius: 5%;
+  padding: 5px;
+  background-color: aliceblue;
+  font-weight: bold;
+}
+
+table {
+  border-spacing: 10px;
+}
+
+div {
+  padding: 5px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  flex-direction: row 3fr;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif";
+}

@@ -1,0 +1,4 @@
+.Inventory {
+    display: flex;
+    flex-direction: column-reverse;
+  }
