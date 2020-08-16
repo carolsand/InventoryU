@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Routes, Route, Link } from "react-router-dom";
+import React, {useState} from 'react';
+import { Route, Redirect, Switch } from "react-router-dom";
 import './App.css';
 
-
 /* The following imports are named exports from inventoryu */
-// import HomePage from '../HomePage/HomePage';
+import HomePage from '../HomePage/HomePage';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import CreateInventory from '../CreateInventory/CreateInventory';
 import SignupPage from '../SignupPage/SignupPage';
@@ -14,84 +12,88 @@ import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
 import ProfilePage from '../ProfilePage/ProfilePage';
 
-//import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
 
-class App extends Component {
-    constructor() {
-      super();
-      this.state = {
-        // Initialize user if there's a token, otherwise null
-        user: userService.getUser(),
-        profile: userService.getUser(),
-      };
-    }
+// class App extends Component {
+//     constructor() {
+//       super();
+//       this.state = {
+//         // Initialize user if there's a token, otherwise null
+//         user: userService.getUser(),
+//         // profile: userService.getUser(),
+//       };
+//     }
 
     // history = useHistory();
-    handleLogout = () => {
-        userService.logout();
-        this.setState({ user: null });
-      }
-      handleSignupOrLogin = () => {
-        this.setState({ user: userService.getUser() });
-    }
 
-    render() {
+
+// handleSignupOrLogin = (setUser()) => {
+//         userService.getUser() });
+
+function App() {
+      
+    const [user, setUser] = useState(userService.getUser());
+      console.log('Running App');
+
+    const handleLogout = () => {
+        userService.logout();
+        setUser(null);
+    };
+
+    const handleSignupOrLogin = () => {
+        setUser(userService.getUser())
+    };
         return (
           <div className="">
             <header className='container'> &nbsp;&nbsp;&nbsp; InventoryU </header>
               <NavBar
-                user={this.state.user}
-                handleLogout={this.handleLogout}
+                user={user}
+                handleLogout={handleLogout}
                 />
-            <BrowserRouter>
-             <Routes>
-              <Route exact path='/' render={({ history }) =>
-                < InventoryPage
-                  handleSignupOrLogin={this.handleSignupOrLogin}
-                />
-              } />
-              <Route exact path='/signup' render={({ history }) =>
-                <SignupPage
-                  history={history}
-                  handleSignupOrLogin={this.handleSignupOrLogin}
+            <Switch>
+              <Route exact path='/signup' render={() =>
+                < SignupPage
+                  handleSignupOrLogin={handleSignupOrLogin}
                 />
               } />
-              <Route exact path='/login' render={({ history }) =>
+              <Route exact path='/login' render={() =>
                 <LoginPage
-                  history={history}
-                  handleSignupOrLogin={this.handleSignupOrLogin}
+                  handleSignupOrLogin={handleSignupOrLogin}
+                />
+              } />
+              <Route exact path='/home-page' render={() =>
+                <HomePage
+                  handleSignupOrLogin
                 />
               } />
               <Route exact path='/profile' render={() =>
-                this.state.user ?
+                user ?
                 <ProfilePage
-                  user={this.state.user}
+                  user={user}
                   />
                 :
-                <Link to="/home-page" />
+                <Redirect to="/home-page" />
               } />
               <Route exact path='/create-inventory' render={() =>
-                this.state.user ?
+                user ?
                 <CreateInventory
-                 user={this.state.user}
+                 user={user}
                 />
                 :
-                <Link to="/inventory-page" />
+                <Redirect to="/inventory-page" />
               }/>
               <Route exact path='/inventory-page' render={() =>
-                  this.state.user ?
+                  user ?
                   <InventoryPage
-                  user={this.state.user}
+                  user={user}
                   />
                   :
-                  <Link to="/home-page"> Home Page </Link>
+                  <Redirect to="/home-page" />
               } />
               :
-              </Routes>
-            </BrowserRouter>
+              </Switch>
           </div>
         );
       }
-    }
+    
 export default App;

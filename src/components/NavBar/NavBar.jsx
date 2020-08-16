@@ -8,7 +8,7 @@ const NavBar = (props) => {
         <Link to='/home-page' className='nav-link'>Home</Link> 
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
-        <Link to='/create-page' className='nav-link'>Make Your Rooms</Link> 
+        <Link to='/create' className='nav-link'>Make Your Rooms</Link> 
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
         <Link to='rooms' className='nav-link'>Rooms</Link> 

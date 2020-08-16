@@ -1,26 +1,39 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import './SignupPage.css';
 
-class SignupPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: '' }
-  }
 
-  updateMessage = (msg) => {
-    this.setState({ message: msg });
-  }
+function SignupPage(props) {
+  const [message, setMessage] = useState('');
+  console.log("Hey the signup page");
+ 
+  return (
+    <div className='SignupPage'>
+      <SignupForm {...props} updateMessage={setMessage} />
+      <p>{message}</p>
+    </div>
+  );
+};  
 
-  render() {
-    return (
-      <div className='SignupPage'>
-        <SignupForm {...this.props} updateMessage={this.updateMessage} />
-        <h1 SignupPage />
-        <p>{this.state.message}</p>
-      </div>
-    );
-  }
-}
+
+// class SignupPage extends Component {
+  // constructor(props) {
+    // super(props);
+    // this.state = { message: '' }
+  // }
+
+  // updateMessage = (msg) => {
+    // this.setState({ message: msg });
+  // // }
+
+  // render() {
+    // return (
+  //     // <div className='SignupPage'>
+  //       <SignupForm {...this.props} updateMessage={this.updateMessage} />
+  //       <p>{this.state.message}</p>
+  //     </div>
+  //   );
+  // }
+// }
 
 export default SignupPage;
