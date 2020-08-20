@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import './SignupPage.css';
 
+/* Refactored to use declarative function instead of class  */
 
 function SignupPage(props) {
   const [message, setMessage] = useState('');
@@ -10,11 +11,11 @@ function SignupPage(props) {
   return (
     <div className='SignupPage'>
       <SignupForm {...props} updateMessage={setMessage} />
+      <p>{console.log("In the return section --->")}</p>
       <p>{message}</p>
     </div>
   );
 };  
-
 
 // class SignupPage extends Component {
   // constructor(props) {

@@ -1,13 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const User = require('../../models/user');
+const usersCtrl = require('../../controllers/user');
 
-console.log('Reached:: routes/api/user');
+/*---------- Public Routes ----------*/
+router.post('/signup', usersCtrl.signup);
+router.post('/login', usersCtrl.login);
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
-});
 
-// router.post('/facts', isLoggedIn, usersCtrl.addFact);
+/*---------- Protected Routes ----------*/
 
 module.exports = router;
