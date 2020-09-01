@@ -1,7 +1,30 @@
 const mongoose = require('mongoose');
+// const {Sequelize, DataTypes} = require('sequelize');
+// const sequelize = new Sequelize('postgresql::memory:');
 const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
+
+// const userSchema = sequelize.define('User', {
+//   //Model attributes are defined here
+//   firstName: {
+//     type: DataTypes.String,
+//     allowNull: false
+//   },
+//   lastName: {
+//     type: DataTypes.String
+//   },
+//   email: {
+//     type: DataTypes.String,
+//     allowNull: false
+//   },
+//   password: {
+//     type: DataTypes.String,
+//     allowNull: false
+//   },
+//   timestamps: true
+
+// });
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -42,5 +65,3 @@ userSchema.methods.comparePassword = function (tryPassword, cb) {
 };
 
 module.exports = mongoose.model('User', userSchema);
-
-// User --> Profile --> [Experience] --> [Activity] + JobTitle 

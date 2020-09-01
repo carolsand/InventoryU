@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import { Route, Redirect, Switch } from "react-router-dom";
 import './App.css';
 
@@ -32,16 +33,22 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 
 function App() {
       
-    const [user, setUser] = useState(userService.getUser());
-      console.log('Running App');
+    // const [user, setUser] = useState(userService.getUser());
+    const user = userService.getUser();
+
+    console.log('Running App');
+    console.log('The value of user is--->', user);
 
     const handleLogout = () => {
         userService.logout();
-        setUser(null);
+        // setUser(null);
     };
 
     const handleSignupOrLogin = () => {
-        setUser(userService.getUser())
+        // setUser(userService.getUser());
+        userService.getUser();
+        console.log('The value of user is--->', user);
+
     };
         return (
           <div className="">
@@ -94,6 +101,6 @@ function App() {
               </Switch>
           </div>
         );
-      }
+}
     
 export default App;

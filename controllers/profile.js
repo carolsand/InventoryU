@@ -28,10 +28,12 @@ async function getProfile(req, res) {
   res.json(profile);
 }
 
+/* This function renders nothing and is unnecessary */
 function newProfile(req, res) {
   res.render('api/profile/new', { title: 'Profile' });
 }
 
+/* Create a new profile for the logged in user */
 function create(req, res) {
   var profile = new Profile(req.body);
   profile.save(function (err) {
@@ -41,6 +43,7 @@ function create(req, res) {
   });
 }
 
+/* Delete the logged in users profile */
 function deleteProfile(req, res) {
   Profile.deleteOne({ '_id': req.params.id }, function (err) {
     res.redirect('/api/profile');
@@ -54,7 +57,7 @@ function show(req, res) {
       Job.find({job: req.params.id}, function(err, job) {
         console.log(job);
         res.render('profile/show', {
-          title: 'Profile Detail', profile, activity, job
+          title: 'Profile Detail', profile
         });
       })
     });

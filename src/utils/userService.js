@@ -1,8 +1,9 @@
 import tokenService from './tokenService';
 
-const BASE_URL = '/api/users/';
+const BASE_URL = '../routes/api/users/';
 
 function signup(user) {
+  console.log('This is the value of user in userService.signup()', user);
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
     headers: new Headers({ 'Content-Type': 'application/json' }),

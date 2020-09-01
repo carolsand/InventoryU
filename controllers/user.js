@@ -10,8 +10,8 @@ module.exports = {
 
 async function signup(req, res) {
   const user = new User(req.body);
-  console.log("This is the SignUP function ---->");
-  const profile = new Profile({user: user._id, city:'', state:'', country:'', experience:[] });
+  console.log("This is the SignUP function after instatiating User ---->", user);
+  const profile = new Profile({user: user._id, city:'', state:'', country:'' });
   try {
     user.profile = profile;
     await user.save();
@@ -27,6 +27,7 @@ async function signup(req, res) {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
+    console.log("This is the user in login -----> ", user)
     if (!user) return res.status(401).json({ err: 'bad credentials' });
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {
