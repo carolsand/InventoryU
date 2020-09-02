@@ -19,27 +19,27 @@ class App extends Component {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
       inventory: [],
-      activity: [],
-      job: {},
+      room: [],
+      item: [],
       profile: userService.getUser(),
     };
   }
 
   async componentDidMount () {
     let inventory = await inventoryService.getInventory();
-    const experiences = await experienceService.getAllExperiences();
-    this.setState({experience, experiences});
+    // const experiences = await experienceService.getAllExperiences();
+    this.setState({inventory});
   }
 
-  handleGetAllExperiences = (experiences) => {
-    const experience = experienceService.getAllExperiences();
-    this.setState({ experience, experiences });
-  }
+  // handleGetAllExperiences = (experiences) => {
+  //   const experience = experienceService.getAllExperiences();
+  //   this.setState({ experience, experiences });
+  // }
 
-  handleGetNewExperience = (experience) => {
-    const newExperience = experienceService.getOneExperience(experience);
-    this.setState({newExperience, experience});
-  }
+  // handleGetNewExperience = (experience) => {
+  //   const newExperience = experienceService.getOneExperience(experience);
+  //   this.setState({newExperience, experience});
+  // }
 
 
   handleLogout = () => {
@@ -51,8 +51,8 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   }
 
-  handleCreateExperience = () => {
-    this.setState({user: experienceService.create()})
+  handleCreateInventory = () => {
+    this.setState({user: inventoryService.create()})
   }
 
   render() {

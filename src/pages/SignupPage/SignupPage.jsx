@@ -33,7 +33,6 @@ class SignupPage extends Component {
     return (
       <div className='SignupPage'>
         <SignupForm {...this.props} updateMessage={this.updateMessage} />
-        <p>{console.log("In the return section --->")}</p>
         <p>{this.state.message}</p>
       </div>
     );
