@@ -9,6 +9,7 @@ module.exports = {
 };
 
 async function signup(req, res) {
+  console.log('Starting signup route...');
   const user = new User(req.body);
   console.log("This is the SignUP function after instantiating User ---->", user);
   const profile = new Profile({user: user._id, city:'', state:'', country:'' });

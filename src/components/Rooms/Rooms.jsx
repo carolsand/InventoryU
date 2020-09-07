@@ -1,12 +1,14 @@
 import React from 'react';
 import './Room.css';
+import { Navbar } from 'react-bulma-components';
 
-const Room = (props) => (
-    <div className='Room'>
-       <h1>Room Page </h1>
-)
-</div>
-
-);
+const Room = () => {
+    return (
+      <div className="Room">
+        <Navbar />
+        <h2>You Rooms Inventory </h2>
+      </div>
+    );
+  }
 
 export default Room;

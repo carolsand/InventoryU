@@ -1,12 +1,14 @@
 import React from 'react';
 import './Profile.css';
+import { Navbar } from 'react-bulma-components';
 
-const Profile = (props) => (
+const Profile = (props) => {
+    return (
     <div className='Profile'>
-       <h1>Profile Page </h1>
-)
-</div>
-
-);
+       <Navbar />
+       <h1>User Profile </h1>
+    </div>
+    );
+}
 
 export default Profile;

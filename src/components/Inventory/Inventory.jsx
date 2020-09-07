@@ -1,12 +1,13 @@
 import React from 'react';
 import './Inventory.css';
 
-const Inventory = (props) => (
-    <div className='Inventory'>
-       <h1>Inventory Page </h1>
-)
-</div>
-
-);
+const Inventory = () => {
+    return (
+      <div className="InventoryPage">
+        <Navbar />
+        <h2>Your Inventory </h2>
+      </div>
+    );
+  }
 
 export default Inventory;

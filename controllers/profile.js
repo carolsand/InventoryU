@@ -1,4 +1,5 @@
 var Profile = require('../models/profile');
+const profile = require('../models/profile');
 
 module.exports = {
   createUserProfile,
@@ -51,11 +52,11 @@ function deleteProfile(req, res) {
 }
 
 function show(req, res) {
-  Profile.findById(req.params.id, function (err, flight) {
-    // Ticket.find({}).where('_id').nin(flight.ticket)
-    Activity.find({ flight: req.params.id }, function (err, activity) {
-      Job.find({job: req.params.id}, function(err, job) {
-        console.log(job);
+  Profile.findById(req.params.id, function (err, profile) {
+    // Profile.find({}).where('_id').nin(inventory.rooms)
+    Inventory.find({ invetory: req.params.id }, function (err, activity) {
+      Room.find({room: req.params.id}, function(err, job) {
+        console.log(profile);
         res.render('profile/show', {
           title: 'Profile Detail', profile
         });

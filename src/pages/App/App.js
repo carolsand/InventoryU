@@ -1,106 +1,136 @@
-// import React, {useState} from 'react';
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import { Route, Redirect, Switch } from "react-router-dom";
 import './App.css';
 
 /* The following imports are named exports from inventoryu */
+import userService from '../../utils/userService';
+import roomService from '../../utils/roomService';
+import inventoryService from '../../utils/inventoryService';
 import HomePage from '../HomePage/HomePage';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import CreateInventory from '../CreateInventory/CreateInventory';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
-import userService from '../../utils/userService';
 import ProfilePage from '../ProfilePage/ProfilePage';
 
-// import logo from './logo.svg';
 
-// class App extends Component {
-//     constructor() {
-//       super();
-//       this.state = {
-//         // Initialize user if there's a token, otherwise null
-//         user: userService.getUser(),
-//         // profile: userService.getUser(),
-//       };
-//     }
-
-    // history = useHistory();
-
-
-// handleSignupOrLogin = (setUser()) => {
-//         userService.getUser() });
-
-function App() {
-      
-    // const [user, setUser] = useState(userService.getUser());
-    const user = userService.getUser();
-
-    console.log('Running App');
-    console.log('The value of user is--->', user);
-
-    const handleLogout = () => {
-        userService.logout();
-        // setUser(null);
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      // Initialize user if there's a token, otherwise null
+      user: userService.getUser(),
+      inventory: [],
+      room: [],
+      item: [],
+      profile: userService.getUser(),
     };
+  }
 
-    const handleSignupOrLogin = () => {
-        // setUser(userService.getUser());
-        userService.getUser();
-        console.log('The value of user is--->', user);
+  async componentDidMount () {
+    let inventory = await inventoryService.getInventory();
+    // const inventory = await inventoryService.getInventory();
+    this.setState({inventory: inventoryService.getInventory(inventory)});
+  }
 
-    };
-        return (
-          <div className="">
-            <header className='container'> &nbsp;&nbsp;&nbsp; InventoryU </header>
-              <NavBar
-                user={user}
-                handleLogout={handleLogout}
-                />
-            <Switch>
-              <Route exact path='/signup' render={() =>
-                < SignupPage
-                  handleSignupOrLogin={handleSignupOrLogin}
-                />
-              } />
-              <Route exact path='/login' render={() =>
-                <LoginPage
-                  handleSignupOrLogin={handleSignupOrLogin}
-                />
-              } />
-              <Route exact path='/home-page' render={() =>
-                <HomePage
-                  handleSignupOrLogin
-                />
-              } />
-              <Route exact path='/profile' render={() =>
-                user ?
-                <ProfilePage
-                  user={user}
-                  />
-                :
-                <Redirect to="/home-page" />
-              } />
-              <Route exact path='/create-inventory' render={() =>
-                user ?
-                <CreateInventory
-                 user={user}
-                />
-                :
-                <Redirect to="/inventory-page" />
-              }/>
-              <Route exact path='/inventory-page' render={() =>
-                  user ?
-                  <InventoryPage
-                  user={user}
-                  />
-                  :
-                  <Redirect to="/home-page" />
-              } />
+  // handleGetAllExperiences = (experiences) => {
+  //   const experience = experienceService.getAllExperiences();
+  //   this.setState({ experience, experiences });
+  // }
+
+  // handleGetNewExperience = (experience) => {
+  //   const newExperience = experienceService.getOneExperience(experience);
+  //   this.setState({newExperience, experience});
+  // }
+
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() });
+  }
+
+  handleCreateInventory = () => {
+    const inventory = inventoryService.create();
+    this.setState({user: inventoryService.create(inventory)})
+  }
+
+  handleCreateRoom = () => {
+    const room = roomService.create();
+    this.setState({user: roomService.showAll(room)})
+  }
+
+  handleGetInventory = () => {
+    const inventory = inventoryService.getInventory();
+    this.setState({user: inventoryService.showAll(inventory)})
+  }
+
+  render() {
+    return ( 
+      <div className=""> 
+        <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
+          <NavBar 
+            user={this.state.user}
+            handleLogout={this.handleLogout}
+            />
+         <Switch>
+          <Route exact path='/' render={({ history }) =>
+            < HomePage 
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+            
+          } />
+          <Route exact path='/signup' render={({ history }) =>
+            <SignupPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          } />
+          <Route exact path='/login' render={({ history }) =>
+            <LoginPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          } />
+          <Route exact path='/profile-page' render={() =>
+            this.state.user ?
+            <ProfilePage
+              user={this.state.user}
+              inventory={this.state.inventory}
+              // handleGetProfile={this.handleGetProfile}
+              
+            />
+            :
+              <Redirect to='/Home' />
+          } />
+          <Route exact path='/inventory-page' render={() =>
+            this.state.user ?
+            <InventoryPage
+             user={this.state.user}
+             inventory={this.state.inventory}
+             handleGetInventory={this.handleGetInventory}
+            />
+            :
+              <Redirect to='/Home' />
+          } />
+          <Route exact path='/create-room' render={() =>
+              this.state.user ?
+              <CreateInventory
+              handleCreateRoom={this.handleCreateRoom}
+              user={this.state.user}              
+              inventory={this.state.room}
+              />
               :
-              </Switch>
-          </div>
-        );
+              <Redirect to='/inventory-Page' />
+          } />
+        </Switch> 
+      </div>
+    );
+  }
 }
-    
+
 export default App;

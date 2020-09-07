@@ -11,8 +11,8 @@ router.get('/new', inventoryController.new);
 router.get('/show', inventoryController.showAll);
 router.get('/:id', inventoryController.show);
 router.post('/new', inventoryController.create);
-router.get('/:id/edit', inventoryController.showInventoryUpdate);
-router.put('/:id', inventoryController.updateInventory);
+// router.get('/:id/edit', inventoryController.showInventoryUpdate);
+// router.put('/:id', inventoryController.updateInventory);
 router.delete('/:id', inventoryController.delete);
 
 module.exports = router;
