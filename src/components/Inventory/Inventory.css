@@ -1,4 +1,20 @@
-.Inventory {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 150px;
+  transform: scale(1);
+  transition: transform .5s ease;
+}
+
+.card-image:hover img {
+  transform: scale(1.5);
+}
+
+body {
+  background-color: aliceblue;
+}

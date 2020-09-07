@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
-import { Navbar } from 'react-bulma-components';
 
 const NavBar = (props) => {
     let nav = props.user ?
@@ -9,16 +8,16 @@ const NavBar = (props) => {
         <Link to='/home-page' className='nav-link'>Home</Link> 
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
-        <Link to='/create-inventory-page' className='nav-link'>Make Your Rooms</Link> 
+        <Link to='/create-inventory-page' className='nav-link'>Create Your Rooms</Link> 
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
-        <Link to='rooms' className='nav-link'>Rooms</Link> 
+        <Link to='inventory-page' className='nav-link'>Rooms</Link> 
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
-        <Link to='/inventory-page' className='nav-link'>Inventory</Link> 
+        <Link to='/inventory-page' className='nav-link'>{props.user.name}'s Inventory</Link> 
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
-        <Link to='/profile-page' className='nav-link'>Profile</Link> 
+        <Link to='/profile-page' className='nav-link'>{props.user.name}'s Profile</Link> 
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
         <Link to='' className='nav-link' onClick={props.handleLogout}>LOG OUT</Link>

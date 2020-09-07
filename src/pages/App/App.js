@@ -8,7 +8,7 @@ import roomService from '../../utils/roomService';
 import inventoryService from '../../utils/inventoryService';
 import HomePage from '../HomePage/HomePage';
 import InventoryPage from '../InventoryPage/InventoryPage';
-import CreateInventory from '../CreateInventory/CreateInventory';
+import CreateInventory from '../CreateInventoryPage/CreateInventory';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
