@@ -9,6 +9,12 @@
     background-position: center;
     background-size: cover;
     width: 100%;
+     /* The image used */
+     background-image:url(../../images/Fire1.jpg);
+  
+     /* Set a specific height */
+     height: 100vh;
+     width: 100%;
   }
   
   body {
@@ -24,3 +30,5 @@
     color: rgba(245, 230, 226);
   
   }
+
+  
