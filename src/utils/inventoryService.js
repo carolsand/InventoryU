@@ -9,13 +9,13 @@ export default {
   deleteRoomFromInventory
 };
 
-function create(room) {
+function create(inventory) {
   const options = {
     method: 'POST',
     headers: {
       'Content-type': 'application/json'
     },
-    body: JSON.stringify(room)
+    body: JSON.stringify(inventory)
   };
   return fetch(BASE_URL, options).then(res => res.json());
 }
@@ -40,13 +40,13 @@ function addRoomToInventory(room) {
   
 }
 
-function deleteRoomFromInventory(item) {
+function deleteRoomFromInventory(room) {
   const options = {
     method: 'POST',
     headers: {
       'Content-type': 'application/json'
     },
-    body: JSON.stringify(item)
+    body: JSON.stringify(room)
   };
   return fetch(BASE_URL, options).then(res => res.json());
 

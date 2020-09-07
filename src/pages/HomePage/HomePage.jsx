@@ -1,6 +1,7 @@
 import React from 'react';
 // import Footer from '../Footer';
 import { Navbar } from 'react-bulma-components';
+import './HomePage.css';
 
  const HomePage = () => {
     return (

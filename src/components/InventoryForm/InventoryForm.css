@@ -1,0 +1,26 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+  
+  main {
+    display: inline-block;
+    position: absolute;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+  }
+  
+  body {
+    color: rgba(5, 13, 32, 0.8);
+    background-color: rgb(2, 1, 0);
+  }
+  
+  body :hover {
+    color: rgba(41, 151, 8, 0.8);
+  }
+  
+  .btn, a{
+    color: rgba(245, 230, 226);
+  
+  }

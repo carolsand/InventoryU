@@ -21,7 +21,7 @@ class App extends Component {
     this.state = {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
-      inventory: [],
+      inventory: inventoryService.getInventory(),
       room: [],
       item: [],
       profile: userService.getUser(),
@@ -33,17 +33,6 @@ class App extends Component {
     // const inventory = await inventoryService.getInventory();
     this.setState({inventory: inventoryService.getInventory(inventory)});
   }
-
-  // handleGetAllExperiences = (experiences) => {
-  //   const experience = experienceService.getAllExperiences();
-  //   this.setState({ experience, experiences });
-  // }
-
-  // handleGetNewExperience = (experience) => {
-  //   const newExperience = experienceService.getOneExperience(experience);
-  //   this.setState({newExperience, experience});
-  // }
-
 
   handleLogout = () => {
     userService.logout();
@@ -96,16 +85,16 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           } />
-          <Route exact path='/profile-page' render={() =>
+          <Route exact path='/profile' render={() =>
             this.state.user ?
             <ProfilePage
               user={this.state.user}
-              inventory={this.state.inventory}
+              profile={this.state.profile}
               // handleGetProfile={this.handleGetProfile}
               
             />
             :
-              <Redirect to='/Home' />
+              <Redirect to='/home-page' />
           } />
           <Route exact path='/inventory-page' render={() =>
             this.state.user ?
@@ -117,12 +106,12 @@ class App extends Component {
             :
               <Redirect to='/Home' />
           } />
-          <Route exact path='/create-room' render={() =>
+          <Route exact path='/create-rooms' render={() =>
               this.state.user ?
               <CreateInventory
-              handleCreateRoom={this.handleCreateRoom}
+              handleCreateInventory={this.handleCreateInventory}
               user={this.state.user}              
-              inventory={this.state.room}
+              inventory={this.state.inventory}
               />
               :
               <Redirect to='/inventory-Page' />
