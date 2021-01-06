@@ -2,14 +2,14 @@
 // These routes are not needed for profile creation
 var express = require('express');
 var router = express.Router();
-var profileController = require('../../controllers/profile');
+var profileController = require('../../controllers/api/profile');
 
 console.log('Reached:: /routes/api/profile');
 
-router.get('/profile/new', profileController.new);
-// router.put('/profile/:id/', profileController.update);
-router.get('/profile/:id/', profileController.getProfile);
-router.post('/profile/', profileController.createUserProfile);
-router.delete('/profile/:id', profileController.deleteProfile);
+router.get('/', profileController.index);
+router.get('/:id', profileController.show);
+router.post('/', profileController.create);
+router.delete('/:id', profileController.delete);
+router.put('/:id', profileController.update);
 
 module.exports = router;
