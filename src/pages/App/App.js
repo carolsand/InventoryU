@@ -17,19 +17,18 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 
 class App extends Component {
   constructor() {
-    super();
+   // super();
     this.state = {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
-      inventory: inventoryService.getInventory(),
       room: [],
       item: [],
-      profile: userService.getUser(),
+      profile: []
     };
   }
 
   async componentDidMount () {
-    let inventory = await inventoryService.getInventory();
+    let inventory = await inventoryService.getInventory(this.user);
     // const inventory = await inventoryService.getInventory();
     this.setState({inventory: inventoryService.getInventory(inventory)});
   }
@@ -44,18 +43,17 @@ class App extends Component {
   }
 
   handleCreateInventory = () => {
-    const inventory = inventoryService.create();
-    this.setState({user: inventoryService.create(inventory)})
+    this.setState({user: userService.getUser()})
+    const inventory = inventoryService.create(user);
   }
 
   handleCreateRoom = () => {
-    const room = roomService.create();
-    this.setState({user: roomService.showAll(room)})
+    const room = this.setState({user: roomService.create(room)})
   }
 
   handleGetInventory = () => {
     const inventory = inventoryService.getInventory();
-    this.setState({user: inventoryService.showAll(inventory)})
+    this.setState({user: inventoryService.show(inventory)})
   }
 
   render() {

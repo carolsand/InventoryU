@@ -1,4 +1,4 @@
-const Room = require('../../models/inventory');
+const Inventory = require('../../models/inventory');
 
 module.exports = {
     index,
@@ -23,7 +23,7 @@ async function create(req, res){
     res.status(201).json(inventory);
 }
 
-function deleteRoom(req, res) {
+async function deleteRoom(req, res) {
     const deletedInventory = await Room.findByIdAndRemove(req.params.id);
     res.status(200).json(deletedInventory); 
 }

@@ -23,7 +23,7 @@ async function create(req, res){
     res.status(201).json(room);
 }
 
-function deleteRoom(req, res) {
+async function deleteRoom(req, res) {
     const deletedRoom = await Room.findByIdAndRemove(req.params.id);
     res.status(200).json(deletedRoom); 
 }

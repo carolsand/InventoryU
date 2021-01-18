@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
 const inventorySchema = new mongoose.Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     room: { type: Schema.Types.ObjectId, ref: 'Room' },
