@@ -41,7 +41,6 @@ class App extends Component {
   handleCreateInventory = () => {
     this.setState({user: userService.getUser()})
     const inventory = inventoryService.create();
-    console.log("Logged in user's Inventory---->", inventory);
   }
 
   handleCreateRoom = () => {
@@ -110,11 +109,12 @@ class App extends Component {
             :
               <Redirect to='/Home' />
           } />
-          <Route exact path='/create-inventory-page' render={() =>
+          <Route exact path='/create-rooms' render={() =>
               this.state.user ?
               <CreateInventory
               handleCreateInventory={this.handleCreateInventory}
               user={this.state.user}              
+              inventory={this.state.inventory}
               />
               :
               <Redirect to='/inventory-Page' />

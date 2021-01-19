@@ -41,12 +41,10 @@ class App extends Component {
   handleCreateInventory = () => {
     this.setState({user: userService.getUser()})
     const inventory = inventoryService.create();
-    console.log("Logged in user's Inventory---->", inventory);
   }
 
   handleCreateRoom = () => {
     const room = this.setState({user: roomService.create(room)})
-    console.log("This is the handleCreateRoom Function in App.js ----->")
   }
 
   handleGetInventory = () => {
@@ -93,7 +91,6 @@ class App extends Component {
             <ProfilePage
               user={this.state.user}
               profile={this.state.profile}
-              handleGetProfile={this.handleGetProfile}
               // handleGetProfile={this.handleGetProfile}
               
             />
@@ -110,11 +107,12 @@ class App extends Component {
             :
               <Redirect to='/Home' />
           } />
-          <Route exact path='/create-inventory-page' render={() =>
+          <Route exact path='/create-rooms' render={() =>
               this.state.user ?
               <CreateInventory
               handleCreateInventory={this.handleCreateInventory}
               user={this.state.user}              
+              inventory={this.state.inventory}
               />
               :
               <Redirect to='/inventory-Page' />

@@ -1,0 +1,13 @@
+.CreateInventory {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: right;
+    margin-bottom: 50%;
+    /* The image used */
+    background-image:url(../../images/Fire1.jpg);
+  
+    /* Set a specific height */
+    height: 100vh;
+    width: 100%;
+  
+  }

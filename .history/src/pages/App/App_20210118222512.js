@@ -110,7 +110,7 @@ class App extends Component {
             :
               <Redirect to='/Home' />
           } />
-          <Route exact path='/create-inventory-page' render={() =>
+          <Route exact path='/create-rooms' render={() =>
               this.state.user ?
               <CreateInventory
               handleCreateInventory={this.handleCreateInventory}
