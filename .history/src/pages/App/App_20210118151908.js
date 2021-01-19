@@ -27,7 +27,6 @@ class App extends Component {
     };
   }
   
-  
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -35,7 +34,7 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
-    //console.log("Logged in usr---->", user);
+    console.log("Logged in usr---->", user);
   }
 
   handleCreateInventory = () => {

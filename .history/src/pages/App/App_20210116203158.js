@@ -21,13 +21,19 @@ class App extends Component {
     this.state = {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
+      inventory: inventoryService.getInventory(),
       room: [],
       item: [],
-      profile: []
+      profile: userService.getUser(),
     };
   }
-  
-  
+
+  async componentDidMount () {
+    let inventory = await inventoryService.getInventory();
+    // const inventory = await inventoryService.getInventory();
+    this.setState({inventory: inventoryService.getInventory(inventory)});
+  }
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -35,27 +41,21 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
-    //console.log("Logged in usr---->", user);
   }
 
   handleCreateInventory = () => {
-    this.setState({user: userService.getUser()})
     const inventory = inventoryService.create();
+    this.setState({user: inventoryService.create(inventory)})
   }
 
   handleCreateRoom = () => {
-    const room = this.setState({user: roomService.create(room)})
+    const room = roomService.create();
+    this.setState({user: roomService.show(room)})
   }
 
   handleGetInventory = () => {
     const inventory = inventoryService.getInventory();
     this.setState({user: inventoryService.show(inventory)})
-  }
-
-  async componentDidMount () {
-    let inventory = await inventoryService.getInventory(this.user);
-    // const inventory = await inventoryService.getInventory();
-    this.setState({inventory: inventoryService.getInventory(inventory)});
   }
 
   render() {

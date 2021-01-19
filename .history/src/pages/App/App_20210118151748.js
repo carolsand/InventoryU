@@ -26,8 +26,13 @@ class App extends Component {
       profile: []
     };
   }
-  
-  
+
+  async componentDidMount () {
+    let inventory = await inventoryService.getInventory(this.user);
+    // const inventory = await inventoryService.getInventory();
+    this.setState({inventory: inventoryService.getInventory(inventory)});
+  }
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -35,7 +40,7 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
-    //console.log("Logged in usr---->", user);
+    console.log("Logged in usr---->", user);
   }
 
   handleCreateInventory = () => {
@@ -50,12 +55,6 @@ class App extends Component {
   handleGetInventory = () => {
     const inventory = inventoryService.getInventory();
     this.setState({user: inventoryService.show(inventory)})
-  }
-
-  async componentDidMount () {
-    let inventory = await inventoryService.getInventory(this.user);
-    // const inventory = await inventoryService.getInventory();
-    this.setState({inventory: inventoryService.getInventory(inventory)});
   }
 
   render() {

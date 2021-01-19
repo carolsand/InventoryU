@@ -10,17 +10,7 @@
  *.o
  .so
  .history
-
- # Production
- /build
-
- # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env
+ build
 
  # Packages #
  ############
@@ -35,8 +25,8 @@
  *.tar
  *.zip
 
- # Logs and databases #
- ######################
+# # Logs and databases #
+# ######################
  *.log
 
  # OS generated files #
@@ -105,6 +95,10 @@
  # CTags #
  #########
  tags
+
+ # Env #
+ #######
+ .env
 
  # Python #
  #######
