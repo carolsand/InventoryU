@@ -10,9 +10,11 @@ class InventoryForm extends Component {
     this.state = {
         name: '',
         description: '',
-        rooms: '', 
+        rooms: '',
+        item: '', 
         city: '',
         state:'',
+        user:''
       };
   }
   
@@ -58,6 +60,17 @@ class InventoryForm extends Component {
                 <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
               </div>
             </div>
+            &nbsp;&nbsp;&nbsp;
+            <div className="form-inline">
+              <div className="col-sm-12">
+                <input type="text" className="form-control" placeholder="Description" value={this.state.description} name="description" onChange={this.handleChange} />
+              </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <label>
+            <span>Room Item</span>
+            <input name='item' value={this.state.item} onChange={this.handleChange} />
+          </label>
           &nbsp;&nbsp;&nbsp;
             <div className="form-group">
               <div className="col-sm-12">
@@ -73,7 +86,7 @@ class InventoryForm extends Component {
               &nbsp;&nbsp;&nbsp;&nbsp;
               <label>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>Rooms</span>
+              <span>Country</span>
               <select name='rooms'>
                 <option value={this.state.rooms}></option>
                 <option value={this.state.rooms}>Living</option>

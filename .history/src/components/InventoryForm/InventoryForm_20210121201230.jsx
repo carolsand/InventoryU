@@ -10,9 +10,11 @@ class InventoryForm extends Component {
     this.state = {
         name: '',
         description: '',
-        rooms: '', 
+        rooms: '',
+        item: '', 
         city: '',
         state:'',
+        user:''
       };
   }
   
@@ -73,7 +75,7 @@ class InventoryForm extends Component {
               &nbsp;&nbsp;&nbsp;&nbsp;
               <label>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>Rooms</span>
+              <span>Country</span>
               <select name='rooms'>
                 <option value={this.state.rooms}></option>
                 <option value={this.state.rooms}>Living</option>

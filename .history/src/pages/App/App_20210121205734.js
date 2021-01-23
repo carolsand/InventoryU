@@ -39,14 +39,14 @@ class App extends Component {
   }
 
   handleCreateInventory = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({user: userService.getUser()})
     const inventory = inventoryService.create();
     console.log("Logged in user's Inventory---->", inventory);
   }
 
   handleCreateRoom = () => {
-    const room = this.setState({user: roomService.create()});
-    console.log("This is the handleCreateRoom Function in App.js ----->");
+    const room = this.setState({user: roomService.create(room)})
+    console.log("This is the handleCreateRoom Function in App.js ----->")
   }
 
   handleGetInventory = () => {
@@ -56,7 +56,6 @@ class App extends Component {
   }
 
   async componentDidMount () {
-    console.log("componentDidMount--->");
     let inventory = await inventoryService.getInventory(this.user);
     // const inventory = await inventoryService.getInventory();
     this.setState({inventory: inventoryService.getInventory(inventory)});
@@ -96,6 +95,7 @@ class App extends Component {
               user={this.state.user}
               profile={this.state.profile}
               handleGetProfile={this.handleGetProfile}
+              // handleGetProfile={this.handleGetProfile}
               
             />
             :

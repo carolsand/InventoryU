@@ -10,9 +10,11 @@ class InventoryForm extends Component {
     this.state = {
         name: '',
         description: '',
-        rooms: '', 
+        rooms: '',
+        item: '', 
         city: '',
         state:'',
+        user:''
       };
   }
   
