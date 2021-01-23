@@ -26,7 +26,15 @@ class App extends Component {
       profile: []
     };
   }
-  
+
+  async componentDidMount () {
+    console.log("componentDidMount--->");
+    let user = await userService.getUser();
+    // const inventory = await inventoryService.getInventory();
+    this.setState({inventory: inventoryService.getInventory(user)});
+  }
+
+
   
   handleLogout = () => {
     userService.logout();
@@ -55,13 +63,7 @@ class App extends Component {
     this.setState({user: inventoryService.show(inventory)})
   }
 
-  async componentDidMount () {
-    console.log("componentDidMount--->");
-    let inventory = await inventoryService.getInventory(this.user);
-    // const inventory = await inventoryService.getInventory();
-    this.setState({inventory: inventoryService.getInventory(inventory)});
-  }
-
+  
   render() {
     return ( 
       <div className=""> 
@@ -74,7 +76,8 @@ class App extends Component {
           <Route exact path='/' render={({ history }) =>
             < HomePage
               history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
+              handleGetInventory={this.handleGetInventory}
+              user={this.getUser}
             />
             
           } />
