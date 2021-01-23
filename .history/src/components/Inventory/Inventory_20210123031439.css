@@ -1,8 +1,14 @@
-.card-image {
+.Room {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.card-image img {
+  width: 150px;
+  transform: scale(1);
+  transition: transform .5s ease;
 }
 
 .card-image:hover img {
@@ -10,12 +16,12 @@
 }
 
 body {
-  color: aliceblue;
+  background-color: aliceblue;
   display: flex;
   justify-content: center;
   padding: .3%;
   font-size: 1.9vh;
-  background-color: rgba(95, 133, 76, 0.8);
+  background-color: rgba(115, 117, 114, 0.8);
   opacity: .9;
   background-image:url(../../images/Fire1.jpg);
   height: 100vh;

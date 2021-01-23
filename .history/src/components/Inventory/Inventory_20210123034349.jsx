@@ -14,7 +14,7 @@ const Inventory = (props) => {
     return (
       <div>
         <h1>Your Inventory {props.user} </h1>
-        <h4>Inventory Profile profile = props.profile </h4>
+        <h4>Inventory Profile {props.profile} </h4>
       </div>
     );
   }
