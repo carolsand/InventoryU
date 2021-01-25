@@ -8,6 +8,10 @@ import './InventoryPage.css';
       <div className="InventoryPage">
         <Navbar />
         <h2>Take Inventory Before Disaster Strikes </h2>
+        <ul>
+          {props.state.inventory}
+          {props.state.room}
+        </ul>
       </div>
     );
   }

@@ -76,6 +76,7 @@ class App extends Component {
   render() {
     return (
       <div className=""> 
+        Inventory: {this.state.inventory}
         <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
           <NavBar 
             user={this.state.user}

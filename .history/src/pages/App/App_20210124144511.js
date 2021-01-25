@@ -21,8 +21,8 @@ import Rooms from '../../components/Rooms/Rooms.jsx';
 const user = userService.getUser();
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
@@ -74,7 +74,7 @@ class App extends Component {
 
   
   render() {
-    return (
+    return ( 
       <div className=""> 
         <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
           <NavBar 

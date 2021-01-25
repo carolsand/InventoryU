@@ -15,7 +15,7 @@ body {
   justify-content: center;
   padding: .3%;
   font-size: 1.9vh;
- /* background-color: rgba(169, 189, 159, 0.8); */
+  background-color: rgba(95, 133, 76, 0.8);
   opacity: .9;
   background-image:url(../../images/Fire1.jpg);
   height: 100vh;

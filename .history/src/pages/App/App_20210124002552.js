@@ -63,7 +63,6 @@ class App extends Component {
   handleGetRooms = () => {
     const rooms = roomService.getRooms();
     this.setState({room: roomService.getRooms()});
-    console.log("Getting the rooms created for this profile --->", rooms);
   }
 
   handleGetInventory = () => {
@@ -74,7 +73,7 @@ class App extends Component {
 
   
   render() {
-    return (
+    return ( 
       <div className=""> 
         <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
           <NavBar 
@@ -112,10 +111,8 @@ class App extends Component {
           } />
           
           <Route exact path='/rooms-page' render={() =>
-            this.state.user ?
-            <Rooms rooms={this.handleGetRooms}
-            handleGetRooms={this.handleGetRooms}
-            />
+            this.state.user ? 
+            Rooms = {rooms: this.handleGetRooms}
             :
               <Redirect to='/inventory-page' />
           } />

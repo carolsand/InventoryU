@@ -74,7 +74,7 @@ class App extends Component {
 
   
   render() {
-    return (
+    return ( 
       <div className=""> 
         <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
           <NavBar 
@@ -113,7 +113,7 @@ class App extends Component {
           
           <Route exact path='/rooms-page' render={() =>
             this.state.user ?
-            <Rooms rooms={this.handleGetRooms}
+            <Rooms
             handleGetRooms={this.handleGetRooms}
             />
             :

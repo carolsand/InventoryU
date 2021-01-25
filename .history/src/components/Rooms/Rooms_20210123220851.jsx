@@ -7,8 +7,9 @@ const Rooms = (props) => {
       <div>
         <h2>You Rooms Inventory </h2>
         <h3> List of Rooms </h3>
-        <p> {props.room} {console.log("value of props --->", props)} </p>
-      </div>  
+        <p> {props.room} {console.log("value of props --->", props.room)} </p>
+        <p> {props.profile} </p>
+      </div>
     );
   }
 

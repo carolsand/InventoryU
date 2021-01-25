@@ -18,9 +18,9 @@ const Inventory = (props) => {
         {/*Inventory.map(invent => <li key={invent}>{invent}</li>)*/}
         <ul>
           {/*props.state.room*/}
-          {/*props.inventory.map(inventory =>
+          {props.inventory.map(inventory =>
            <button key={inventory}>{inventory}</button>
-          ) */}
+    )}
         </ul>
         <h1>Your Inventory </h1> 
       </div>

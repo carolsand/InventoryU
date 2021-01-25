@@ -5,6 +5,7 @@
     font-size: 1.9vh;
     background-color: rgba(115, 117, 114, 0.8);
     opacity: .9;
+    background-image:url(../../images/Fire1.jpg);
     height: 100vh;
     width: 100%;
 }
@@ -27,11 +28,6 @@ main {
      /* The image used */
      opacity: .4;
      background-image:url(../../images/Fire1.jpg);
-     
-    display: flex;
-    justify-content: center;
-    padding: .3%;
-    font-size: 1.9vh;
   
      /* Set a specific height */
      height: 100vh;

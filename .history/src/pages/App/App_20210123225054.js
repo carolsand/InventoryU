@@ -18,16 +18,16 @@ import Profile from '../../components/Profiles/Profile.jsx';
 import Room from '../../components/Rooms/Rooms.jsx';
 import Rooms from '../../components/Rooms/Rooms.jsx';
 
-const user = userService.getUser();
+const user = userService.getUser().profile;
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       // Initialize user if there's a token, otherwise null
-      user: userService.getUser(),
       room: roomService.getRooms(),
-      inventory: inventoryService.getInventory(userService.getUser())
+      profile: userService.getUser().profile,
+      inventory: inventoryService.getInventory(userService.getUser().profile)
     };
   }
 
@@ -63,7 +63,6 @@ class App extends Component {
   handleGetRooms = () => {
     const rooms = roomService.getRooms();
     this.setState({room: roomService.getRooms()});
-    console.log("Getting the rooms created for this profile --->", rooms);
   }
 
   handleGetInventory = () => {
@@ -74,7 +73,7 @@ class App extends Component {
 
   
   render() {
-    return (
+    return ( 
       <div className=""> 
         <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
           <NavBar 
@@ -113,8 +112,9 @@ class App extends Component {
           
           <Route exact path='/rooms-page' render={() =>
             this.state.user ?
-            <Rooms rooms={this.handleGetRooms}
-            handleGetRooms={this.handleGetRooms}
+            <Rooms 
+             rooms={this.state.rooms}
+             handleGetrooms={this.handleGetRooms}
             />
             :
               <Redirect to='/inventory-page' />

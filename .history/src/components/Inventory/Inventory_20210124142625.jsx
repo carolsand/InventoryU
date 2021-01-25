@@ -14,13 +14,12 @@ const Inventory = (props) => {
     return (
       <div>
         <h2>Inventory Profile </h2>
-         {/*<Inventory desc={props.inventory} /> */}
+          <h3> {props.state.user} 
+        </h3>
         {/*Inventory.map(invent => <li key={invent}>{invent}</li>)*/}
         <ul>
-          {/*props.state.room*/}
-          {/*props.inventory.map(inventory =>
-           <button key={inventory}>{inventory}</button>
-          ) */}
+          {props.state.inventory}
+          {props.state.room}
         </ul>
         <h1>Your Inventory </h1> 
       </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { Navbar } from 'react-bulma-components';
 import './InventoryPage.css';
 
- const InventoryPage = (props) => {
+ const InventoryPage = () => {
     return (
       <div className="InventoryPage">
         <Navbar />

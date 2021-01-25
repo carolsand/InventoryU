@@ -27,11 +27,6 @@ main {
      /* The image used */
      opacity: .4;
      background-image:url(../../images/Fire1.jpg);
-     
-    display: flex;
-    justify-content: center;
-    padding: .3%;
-    font-size: 1.9vh;
   
      /* Set a specific height */
      height: 100vh;

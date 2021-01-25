@@ -12,7 +12,7 @@
  .history
 
  # Production
- /build
+ build
 
  # misc
 .DS_Store

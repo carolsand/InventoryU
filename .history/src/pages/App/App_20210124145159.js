@@ -74,7 +74,7 @@ class App extends Component {
 
   
   render() {
-    return (
+    return ( 
       <div className=""> 
         <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
           <NavBar 
@@ -130,7 +130,7 @@ class App extends Component {
           <Route exact path='/inventory-page' render={() =>
               this.state.user ?
               <Inventory
-              handleGetInventory={this.handleGetInventory}             
+                         
               />
               :
               <Redirect to='/profile-Page' />
