@@ -24,6 +24,7 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/inventory', require('./routes/api/inventory'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/rooms', require('./routes/api/rooms'));
+app.use('/api/items', require('./routes/api/items'));
 
 /* The following "catch all" route (note the *)is necessary
 for a SPA's client-side routing to properly work */

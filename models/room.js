@@ -5,13 +5,21 @@ const roomSchema = new Schema({
     name: {
         type: String,
         required: true,
-        enum: ['LVRM', 'BEDRM', 'KITCN', 'GUESTRM', 'DNGROOM', 'GARAGE', 'DEN', 'OFFICE', 'MUSICROOM']
+        enum: ['LVRM', 'BEDRM', 'KITCN', 'GUESTRM', 'DNGROOM', 'GARAGE', 'DEN', 'OFFICE', 'MUSICROOM', 'STUDIO']
     },
     description: {
         type: String,
         required: true
     },
-    items: { type: Schema.Types.ObjectId, ref: 'Item' },
+    items: [String], 
+    item: {
+        name: "",
+        type: "",
+        color: "",
+        purchaseDate: "",
+        serialNum: "",
+        size: "",
+    }, 
 }, {
     timestamps: true
 });

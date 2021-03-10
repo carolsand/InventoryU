@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     padding: .3%;
-    font-size: 1.9vh;
+    font-size: 2.0vh;
    /* background-color: rgba(12, 12, 12, .8); */
     opacity: .4;
 }
 
 .NavBar :hover {
-    color: rgb(118, 193, 243);
+    color: rgb(231, 101, 14);
 }

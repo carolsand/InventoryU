@@ -5,9 +5,11 @@
   overflow: hidden;
 }
 
+/*
 .card-image:hover img {
   transform: scale(1.5);
 }
+*/
 
 body {
   color: aliceblue;
@@ -15,9 +17,8 @@ body {
   justify-content: center;
   padding: .3%;
   font-size: 1.9vh;
- /* background-color: rgba(169, 189, 159, 0.8); */
   opacity: .9;
-  background-image:url(../../images/Fire1.jpg);
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  /*background-image:url(../../images/Fire1.jpg);*/
 }
