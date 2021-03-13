@@ -1,11 +1,14 @@
-import React, {Component} from 'react';
-import { Route, Redirect, Switch } from "react-router-dom";
+import React, { Component } from 'react';
 import './App.css';
+import { Route, Redirect, Switch } from "react-router-dom";
 
 /* The following imports are named exports from inventoryu */
 import userService from '../../utils/userService';
 import roomService from '../../utils/roomService';
 import inventoryService from '../../utils/inventoryService';
+import * as roomsAPI from '../../utils/roomService'
+
+/* Import Pages */
 import HomePage from '../HomePage/HomePage';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import CreateInventory from '../CreateInventoryPage/CreateInventory';
@@ -18,16 +21,15 @@ import Profile from '../../components/Profiles/Profile.jsx';
 import Room from '../../components/Rooms/Rooms.jsx';
 import Rooms from '../../components/Rooms/Rooms.jsx';
 
-const user = userService.getUser();
-
 class App extends Component {
   constructor() {
     super();
+    /*const [rooms, getRooms] = roomService.getRooms(); */
     this.state = {
       // Initialize user if there's a token, otherwise null
       user: userService.getUser(),
-      room: roomService.getRooms(),
-      inventory: inventoryService.getInventory(userService.getUser())
+      inventory: inventoryService.getInventory(),
+      rooms: roomService.getRooms()
     };
   }
 
@@ -35,11 +37,10 @@ class App extends Component {
     console.log("componentDidMount--->");
     let user = await userService.getUser();
     // const inventory = await inventoryService.getInventory();
-    this.setState({inventory: inventoryService.getInventory(user)});
+    // this.setState({inventory: inventoryService.getInventory()});
+    console.log('The current logged user ------>', user);
   }
 
-
-  
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -52,31 +53,32 @@ class App extends Component {
 
   handleCreateInventory = () => {
     const inventory = inventoryService.create();
+    this.setState({inventory: inventoryService.create()});
     console.log("Logged in user's Inventory---->", inventory);
   }
 
   handleCreateRoom = () => {
     const room = this.setState({room: roomService.create()});
+    this.setState({room: roomService.create(room)});
     console.log("This is the handleCreateRoom Function in App.js ----->");
-  }
-
-  handleGetRooms = () => {
-    const rooms = roomService.getRooms();
-    this.setState({room: roomService.getRooms()});
-    console.log("Getting the rooms created for this profile --->", rooms);
   }
 
   handleGetInventory = () => {
     const inventory = inventoryService.getInventory(); 
-    console.log("Inventory in database -------------->", inventory);
-    this.setState({user: inventoryService.show(inventory)})
+    console.log("Rooms in database -------------->", inventory);
+    this.setState({user: inventoryService.getInventory(inventory)});
   }
 
-  
+  handleGetRooms = () => {
+    const rooms = roomService.getRooms();
+    this.setState({rooms: rooms});
+    console.log("Getting the rooms created for this profile --->", rooms);
+  }
+
   render() {
     return (
       <div className=""> 
-        <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header>
+        {/* <header className='container'> &nbsp;&nbsp;&nbsp; Take Inventory Before Disaster Strikes  </header> */}
           <NavBar 
             user={this.state.user}
             handleLogout={this.handleLogout}
@@ -113,8 +115,9 @@ class App extends Component {
           
           <Route exact path='/rooms-page' render={() =>
             this.state.user ?
-            <Rooms rooms={this.handleGetRooms}
-            handleGetRooms={this.handleGetRooms}
+            <Room
+              handleGetRooms={this.handleGetRooms}
+              rooms= {this.handleGetRooms}
             />
             :
               <Redirect to='/inventory-page' />

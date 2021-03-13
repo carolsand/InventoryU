@@ -18,15 +18,15 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
         
         <Link to='/profile-page' className='nav-link'>{props.user.name}'s Profile</Link> 
-        &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;|||&nbsp;&nbsp;&nbsp;|||&nbsp;&nbsp;
         
         <Link to='' className='nav-link' onClick={props.handleLogout}>LOG OUT</Link>
-         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        {/* &nbsp;||&nbsp;&nbsp;&nbsp;&nbsp; */}
     </div>
     :
     <div>
         <Link to='/login' className='NavBar-link'>LOG IN</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
+        &nbsp;&nbsp;|||&nbsp;&nbsp;
         <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
     </div>;
 

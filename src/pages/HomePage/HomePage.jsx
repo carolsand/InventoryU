@@ -1,6 +1,5 @@
 import React from 'react';
 // import Footer from '../Footer';
-import { Navbar } from 'react-bulma-components';
 import '../../components/Inventory/Inventory';
 //import './HomePage.css';
 
