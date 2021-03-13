@@ -1,7 +1,6 @@
 import React from 'react';
 import './Profile.css';
 import { Navbar } from 'react-bulma-components';
-import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 
 const Profile = (props) => {
     return (
